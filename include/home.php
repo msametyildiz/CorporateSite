@@ -5,8 +5,8 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-xl-10">
                         <div class="slider_text text-center justify-content-center">
-                            <p>Find Nearby Attraction</p>
-                            <h3>Find Nearby Attraction</h3>
+                            <p>MSY</p>
+                            <h3>Kurumsal Firma Scripti</h3>
                             
                         </div>
                     </div>
