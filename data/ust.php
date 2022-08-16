@@ -7,8 +7,9 @@
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href="<?=SITE?>">
-                                        <img src="<?=SITE?>img/logo.png" alt="">
+                                    <a href="<?=SITE?>" style="color:black;font-size:30px;background-image: url('<?=SITE?>img/about/counter.png')">
+                                        PAYLASTIKCA
+                                        <!--<img src="<?=SITE?>img/logo.png" alt="">-->
                                     </a>
                                 </div>
                             </div>

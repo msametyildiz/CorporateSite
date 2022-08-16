@@ -5,11 +5,17 @@
                 <div class="row">
                     <div class="col-xl-4 col-md-6 col-lg-3">
                         <div class="footer_widget">
-                            <div class="footer_logo">
+                            <!--<div class="footer_logo">
                                 <a href="#">
                                     <img src="img/footer_logo.png" alt="">
                                 </a>
-                            </div>
+                            </div>-->
+                            <div class="logo">
+                                    <a href="<?=SITE?>" style="color:black;font-size:30px;background-image: url('<?=SITE?>img/about/counter.png')">
+                                        PAYLASTIKCA
+                                        <!--<img src="<?=SITE?>img/logo.png" alt="">-->
+                                    </a>
+                                </div>
                             <p>
                                 Esteem spirit temper too say adieus who <br> direct esteem. It esteems luckily or <br>
                                 picture placing drawing.
