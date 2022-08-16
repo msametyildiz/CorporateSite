@@ -32,10 +32,10 @@
                                                     ?>
                                                 </ul>
                                             </li>
-                                            <li><a href="about.html">HİZMETLER</a></li>
-                                            <li><a href="about.html">PROJELER</a></li>
-                                            <li><a href="contact.html">BLOG</a></li>
-                                            <li><a href="about.html">İLETİŞİM</a></li>
+                                            <li><a href="<?=SITE?>hizmetler">HİZMETLER</a></li>
+                                            <li><a href="<?=SITE?>projeler">PROJELER</a></li>
+                                            <li><a href="<?=SITE?>blog">BLOG</a></li>
+                                            <li><a href="<?=SITE?>iletisim">İLETİŞİM</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -43,7 +43,7 @@
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="Appointment">
                                     <div class="book_btn d-none d-lg-block">
-                                        <a href="#">BİZE ULAŞIN</a>
+                                        <a href="<?=SITE?>iletisim">BİZE ULAŞIN</a>
                                     </div>
                                 </div>
                             </div>
