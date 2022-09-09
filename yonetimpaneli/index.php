@@ -204,7 +204,7 @@ include_once(DATA."footer.php");
       data:{"tablo":tablo,"ID":ID,"durum":durum},
       success: function(sonuc){
         if(sonuc=="Tamam"){
-          alert("Değişti");
+          alert("İŞLEM BAŞARILI...");
         }
         else{
           alert("İŞLEMİNİZ SUAN GEÇERSİZDİR. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ...");
