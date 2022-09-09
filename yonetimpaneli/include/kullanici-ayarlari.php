@@ -31,7 +31,7 @@ if($_POST){
         if(!empty($_FILES["resim"]["name"])){
             $picyukle=$VT->upload("resim","userimages/");
             if($picyukle!=false){
-              $ekleuser=$VT->SorguCalistir("INSERT INTO `kullanicilar` (`adsoyad`, `resim`, `kullanici`, `sifre`, `mail`) VALUES ('$usernamelastname','$picyukle','$username',MD5('$userpassword'),'$usermail')");
+              $ekleuser=$VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `resim`, `kullanici`, `sifre`, `mail`) VALUES ('$usernamelastname','$picyukle','$username',MD5('$userpassword'),'$usermail')");
 
             }
             else{
@@ -41,7 +41,7 @@ if($_POST){
             }
          }
         else{
-          $ekleuser=$VT->SorguCalistir("INSERT INTO 'kullanicilar' (`adsoyad`, `kullanici`, `sifre`, `mail`) VALUES ('$usernamelastname','$username',MD5('$userpassword'),'$usermail')");
+          $ekleuser=$VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `kullanici`, `sifre`, `mail`) VALUES ('$usernamelastname','$username','$userpassword','$usermail')");
         }
          if($ekleuser!=false){
             ?>

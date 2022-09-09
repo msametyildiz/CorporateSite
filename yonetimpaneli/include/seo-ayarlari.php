@@ -23,12 +23,15 @@
           
 <!----------------------------------------------------------------------------------------------------------------------------------->
 <?php 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 if($_POST){
       if(!empty($_POST["baslik"]) && !empty($_POST["anahtar"]) && !empty($_POST["description"])){
             $baslik=$VT->filter($_POST["baslik"]);
             $anahtar=$VT->filter($_POST["anahtar"]);
             $description=$VT->filter($_POST["description"]);
-            $guncelle=$VT->SorguCalistir("UPDATE ayarlar","SET baslik=?, anahtar=?, aciklama=?, WHERE ID=?",array($baslik,$anahtar,$description,1),1);
+            $guncelle=$VT->SorguCalistir("UPDATE ayarlar","SET baslik=?, anahtar=?, aciklama=? WHERE ID=?",array($baslik,$anahtar,$description,1),1);
             if($guncelle!=false){
                   ?>
                     <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>

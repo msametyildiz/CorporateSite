@@ -192,7 +192,7 @@ include_once(DATA."footer.php");
 
   function aktifpasif(ID,tablo){
     var durum=0;
-    if($(".aktifpasif"+ID).is('checked')){
+    if($(".aktifpasif"+ID).is(':checked')){
       durum=1;
     }
     else{
@@ -203,8 +203,8 @@ include_once(DATA."footer.php");
       url:"<?=SITE?>ajax.php",
       data:{"tablo":tablo,"ID":ID,"durum":durum},
       success: function(sonuc){
-        if(sonuc=="TAMAM"){
-
+        if(sonuc=="Tamam"){
+          alert("Değişti");
         }
         else{
           alert("İŞLEMİNİZ SUAN GEÇERSİZDİR. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ...");

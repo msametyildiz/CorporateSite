@@ -136,7 +136,7 @@ if($_POST){
                 <div class="col-md-12">
                     <div class="form-group">
                       <label>Resimler</label>
-                      <input type="file" class="form-control" placeholder="Resim Seçiniz ..." name="resim">
+                      <input type="file" class="form-control" placeholder="Resim Seçiniz ..." name="resim" multiple>
                     </div>
                 </div>
                 <!--Serial no  -->

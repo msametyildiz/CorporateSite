@@ -22,7 +22,7 @@ class VT{
 	//--------------------------------------------------------------------------------------------------------------------------------------
 
 	// select * FROM ayarlar WHERE ID=1 ORDER BY ID ASC LIMIT 1
-	public function VeriGetir($tablo , $wherealanlar="",$wherearraydeger="",$ordeby="ORDER BY ID ASC",$limit=""){
+	public function VeriGetir($tablo , $wherealanlar="",$wherearraydeger=array(),$ordeby="ORDER BY ID ASC",$limit=""){
 
 		$this->baglanti->query("SET CHARACTER SET utf8");
 		$sql="SELECT * FROM ".$tablo;
@@ -52,7 +52,7 @@ class VT{
 	}
 //--------------------------------------------------------------------------------------------------------------------------------------
 
-	public function SorguCalistir($tablo,$alanlar="",$degerlerarray="",$limit=""){
+	public function SorguCalistir($tablo,$alanlar="",$degerlerarray=array(),$limit=""){
 		$this->baglanti->query("SET CHARACTER SET utf8");
 		if(!empty($alanlar) && !empty($degerlerarray)){
 			$sql=$tablo." ".$alanlar;
@@ -102,7 +102,7 @@ class VT{
 			
 			else{
 				$tabloOlustur=$this->SorguCalistir('CREATE TABLE `'.$tablo.'` (
-					  `ID` int(11) NOT NULL,
+					  `ID` int(11) NOT NULL AUTO_INCREMENT,
 					  `baslik` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
 					  `selflink` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
 					  `kategori` int(11) DEFAULT NULL,
@@ -112,8 +112,8 @@ class VT{
 					  `description` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
 					  `durum` int(5) DEFAULT NULL,
 					  `sirano` int(11) DEFAULT NULL,
-					  `tarih` date DEFAULT NULL
-					) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;');
+					  `tarih` date DEFAULT NULL,
+					PRIMARY KEY (`ID`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci ;');
 
 
 				$ModulEkle=$this->SorguCalistir("INSERT INTO moduller","SET baslik=?, tablo=?, durum=?, tarih=?",array($baslik,$tablo,$durum,date("y-m-d")));
@@ -271,7 +271,7 @@ class VT{
 		if($kategori!=false){
 			for($q=0;$q<count($kategori);$q++){
 				$kategoriseflink=$kategori[$q]["selflink"];
-				$kategoriseflink=$kategori[$q]["ID"];
+				$kategoriID=$kategori[$q]["ID"];
 				if($secID==$kategoriID){
 					echo '<option value="'.$kategoriID.'" selected="selected">'.str_repeat("&nbsp;&nbsp;&nbsp;",$uz).stripslashes($kategori[$q]["baslik"]).'</option>';
 				}
