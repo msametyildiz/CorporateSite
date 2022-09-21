@@ -43,11 +43,35 @@
               <p>Modül Ekle</p>
             </a>
           </li>
+          
 
+          <li class="nav-item ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Modüller
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                          <a href="<?=SITE?>modul-ekle" class="nav-link">
+                            <i class="fa fa-plus"></i>
+                            <p>Modül Ekle</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="<?=SITE?>modul-sil" class="nav-link">
+                            <i class="fa fa-ban"></i>
+                            <p>Modül Sil</p>
+                          </a>
+                      </li>
+            </ul>
+          </li>
 
 
           <li class="nav-item ">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Sayfalar
