@@ -14,7 +14,7 @@
           <img src="<?=SITE?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info" style="padding-top:12px">
-          <a href="#" class="d-block"><?=$_SESSION["adsoyad"]?></a>
+          <a href="<?=SITE?>login_UserSetting" class="d-block"><?=$_SESSION["adsoyad"]?></a>
         </div>
       </div>
 
@@ -116,7 +116,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="<?=SITE?>kullanici-ayarlari" class="nav-link">
+            <a href="<?=SITE?>kullanici-ekle" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Kullanıcılar

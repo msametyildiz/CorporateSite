@@ -1,3 +1,4 @@
+
 <div class="content-wrapper">
 
     <!-- Content Header (Page header) -->
@@ -34,8 +35,6 @@
 
     <!-- /.content-header -->
 
-
-
     <!-- Main content -->
 
     <section class="content">
@@ -52,7 +51,7 @@
                   <tr>
                       <th style="width:50px;">Sıra</th>
                       <th>Modül Adı</th>
-                      <th style="width:80px;">Tarih</th>
+                      <th style="width:120px;">Tarih</th>
                       <th style="width:120px;">İşlem</th>
                   </tr>
                   </thead>
@@ -69,12 +68,11 @@
                         <td><?=$sira?></td>
                         <td>
                             <?php
-                            echo stripslashes($moduller[$i]["tablo"]); //stripslashes -->html taglarını temizlemiyor
-                            echo $moduller[$i]["tablo"];/*strip_tags -> html taglarını temizliyor*/
+                            echo stripslashes($moduller[$i]["baslik"]); //stripslashes -->html taglarını temizlemiyor
                             ?>
                         </td>
                         <td><?=$moduller[$i]["tarih"]?></td>
-                        <td><a href="<?=SITE?>sil/<?=$kontrol[$i]["tablo"]?>/<?=$moduller[$i]["ID"]?>" class="btn btn-danger btn-sm">Kaldır</a></td>
+                        <td><a href="<?=SITE?>sil/<?=$moduller[$i]["tablo"]?>/<?=$moduller[$i]["ID"]?>" class="btn btn-danger btn-sm">Kaldır</a></td>
                       </tr>
                       <?php
                     }
@@ -103,3 +101,5 @@
     <!-- /.content -->
 
   </div>
+
+ 

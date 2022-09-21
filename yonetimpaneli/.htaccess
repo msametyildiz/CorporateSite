@@ -17,9 +17,8 @@ RewriteRule ^sil/(.*)/(.*)$ index.php?sayfa=sil&tablo=$1&ID=$2  [NC]
 RewriteRule ^seo-ayarlari$ index.php?sayfa=seo-ayarlari [NC]
 RewriteRule ^iletisim-ayarlari$ index.php?sayfa=iletisim-ayarlari [NC]
 RewriteRule ^kullanici-ayarlari$ index.php?sayfa=kullanici-ayarlari [NC]
+RewriteRule ^kullanici-ekle$ index.php?sayfa=kullanici-ekle [NC]
 RewriteRule ^giris-yap$ login.php [NC]
 RewriteRule ^cikis$ index.php?sayfa=cikis [NC]
-
-
 
 
