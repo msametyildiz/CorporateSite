@@ -33,6 +33,7 @@
                                                     ?>
                                                 </ul>
                                             </li>
+                                            <!--hizmetlerimin yada başka bir sayfanın altına bir şey kelemek için yani açılır menü yapmak için href kısmına # ekle -->
                                             <li><a href="<?=SITE?>hizmetler">HİZMETLER</a></li>
                                             <li><a href="<?=SITE?>projeler">PROJELER</a></li>
                                             <li><a href="<?=SITE?>blog">BLOG</a></li>
