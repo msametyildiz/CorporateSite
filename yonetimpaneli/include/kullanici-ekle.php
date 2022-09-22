@@ -4,12 +4,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Kullanıcı Ayarları</h1>
+        <h1 class="m-0 text-dark">Kullanıcı Ekle</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?=SITE?>">Anasayfa</a></li>
-          <li class="breadcrumb-item active">Kullanıcı Ayarları</li>
+          <li class="breadcrumb-item active">Kullanıcı Ekle</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -23,17 +23,18 @@
 <!----------------------------------------------------------------------------------------------------------------------------------->
 <?php 
 if($_POST){
-  if(!empty($_POST["adsoyad"]) && !empty($_POST["kullanici"]) && !empty($_POST["sifre"]) && !empty($_POST["kontrolsifre"]) && !empty($_POST["mail"])){
+  if(!empty($_POST["adsoyad"]) && !empty($_POST["kullanici"]) && !empty($_POST["sifre"]) && !empty($_POST["telefonno"]) && !empty($_POST["kontrolsifre"]) && !empty($_POST["mail"])){
         $usernamelastname=$VT->filter($_POST["adsoyad"]);
         $username=$VT->filter($_POST["kullanici"]);
         $userpassword=$VT->filter($_POST["sifre"]);
+        $telefonno=$VT->filter($_POST["telefonno"]);
         $userconfirmpassword=$VT->filter($_POST["kontrolsifre"]);
         $usermail=$VT->filter($_POST["mail"]);
         if(!empty($_FILES["resim"]["name"])){
             if($userpassword==$userconfirmpassword){
                 $picyukle=$VT->upload("resim","userimages/");
                 if($picyukle!=false){
-                    $ekleuser=$VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `resim`, `kullanici`, `sifre`, `mail`) VALUES ('$usernamelastname','$picyukle','$username',MD5('$userpassword'),'$usermail')");
+                    $ekleuser=$VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `resim`, `kullanici`, `sifre`, `telefonno`,`mail`) VALUES ('$usernamelastname','$picyukle','$username',MD5('$userpassword'),'$telefonno','$usermail')");
                     if($ekleuser!=false){
                         ?>
                           <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
@@ -61,7 +62,7 @@ if($_POST){
          }
         else{
             if($userpassword==$userconfirmpassword){
-                $ekleuser=$VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `kullanici`, `sifre`, `mail`) VALUES ('$usernamelastname','$username','$userpassword','$usermail')");
+              $ekleuser=$VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `kullanici`, `sifre`, `telefonno`,`mail`) VALUES ('$usernamelastname','$username',MD5('$userpassword'),'$telefonno','$usermail')");
                 if($ekleuser!=false){
                     ?>
                       <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
@@ -95,7 +96,7 @@ if($_POST){
       <form action="#" method="post" enctype="multipart/form-data">
       <div class="col-md-8">
       <div class="card-body card card-primary">
-        <div class="row">
+        <div class="row" style="margin-left:3%;">
             <!-- user-namelastname -->
             <div class="col-md-12">
                 <div class="form-group">
@@ -123,6 +124,13 @@ if($_POST){
                 <div class="form-group">
                   <label>Sifre Kontrol</label>
                   <input type="password" class="form-control" placeholder="Şifre ..." name="kontrolsifre">
+                </div>
+            </div>
+            <!--user-phonenumber  -->
+            <div class="col-md-12">
+                <div class="form-group">
+                  <label>Telefon No</label>
+                  <input type="text" class="form-control" placeholder="Telefon No ..." name="telefonno">
                 </div>
             </div>
             <!--user-mail  -->

@@ -23,36 +23,64 @@
 <!----------------------------------------------------------------------------------------------------------------------------------->
 <?php 
 if($_POST){
-  if(!empty($_POST["adsoyad"]) && !empty($_POST["kullanici"]) && !empty($_POST["sifre"]) && !empty($_POST["mail"])){
+  if(!empty($_POST["adsoyad"]) && !empty($_POST["kullanici"]) && !empty($_POST["sifre"]) && !empty($_POST["telefonno"]) && !empty($_POST["kontrolsifre"]) && !empty($_POST["mail"])){
         $usernamelastname=$VT->filter($_POST["adsoyad"]);
         $username=$VT->filter($_POST["kullanici"]);
         $userpassword=$VT->filter($_POST["sifre"]);
+        $telefonno=$VT->filter($_POST["telefonno"]);
+        $userconfirmpassword=$VT->filter($_POST["kontrolsifre"]);
         $usermail=$VT->filter($_POST["mail"]);
         if(!empty($_FILES["resim"]["name"])){
-            $picyukle=$VT->upload("resim","userimages/");
-            if($picyukle!=false){
-              $ekleuser=$VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `resim`, `kullanici`, `sifre`, `mail`) VALUES ('$usernamelastname','$picyukle','$username',MD5('$userpassword'),'$usermail')");
-
+            if($userpassword==$userconfirmpassword){
+                $picyukle=$VT->upload("resim","userimages/");
+                if($picyukle!=false){
+                    $ekleuser=$VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `resim`, `kullanici`, `sifre`, `telefonno`,`mail`) VALUES ('$usernamelastname','$picyukle','$username',MD5('$userpassword'),'$telefonno','$usermail')");
+                    if($ekleuser!=false){
+                        ?>
+                          <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
+                        <?php
+                    }
+                    else{
+                        ?>
+                        <div class="alert alert-danger">! İŞLEM SIRASINDA BİR SORUNLA KARŞILAŞILDI. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ !</div>
+                        <?php
+                    }
+                }
+                else{
+                    ?>
+                    <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARISIZ !</div>
+                    <div class="alert alert-danger">! İŞLEM SIRASINDA BİR SORUNLA KARŞILAŞILDI. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ !</div>
+                    <?php
+                   
+                }
             }
             else{
                 ?>
-                <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARISIZ !</div>
+                <div class="alert alert-danger">! GİRİLEN ŞİFRELER UYUŞMUYOR. LÜTFEN TEKRAR DENEYİNİZ !</div>
                 <?php
             }
          }
         else{
-          $ekleuser=$VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `kullanici`, `sifre`, `mail`) VALUES ('$usernamelastname','$username','$userpassword','$usermail')");
-        }
-         if($ekleuser!=false){
-            ?>
-              <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
-            <?php
-        }
-        else{
+            if($userpassword==$userconfirmpassword){
+              $ekleuser=$VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `kullanici`, `sifre`, `telefonno`,`mail`) VALUES ('$usernamelastname','$username',MD5('$userpassword'),'$telefonno','$usermail')");
+                if($ekleuser!=false){
+                    ?>
+                      <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
+                    <?php
+                }
+                else{
+                    ?>
+                    <div class="alert alert-danger">! İŞLEM SIRASINDA BİR SORUNLA KARŞILAŞILDI. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ !</div>
+                    <?php
+                }
+            }
+            else{
                 ?>
-                <div class="alert alert-danger">! İŞLEM SIRASINDA BİR SORUNLA KARŞILAŞILDI. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ !</div>
+                <div class="alert alert-danger">! GİRİLEN ŞİFRELER UYUŞMUYOR. LÜTFEN TEKRAR DENEYİNİZ !</div>
                 <?php
-        }
+            }
+          }
+         
         
   }
   else{
@@ -68,9 +96,9 @@ if($_POST){
       <form action="#" method="post" enctype="multipart/form-data">
       <div class="col-md-8">
       <div class="card-body card card-primary">
-        <div class="row">
+        <div class="row" style="margin-left:3%;">
             <!-- user-namelastname -->
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="form-group">
                   <label>Ad Soyad</label>
                   <input type="text" class="form-control" placeholder="Ad Soyad ..." name="adsoyad">
@@ -78,42 +106,49 @@ if($_POST){
             </div>
             
              <!--user-name  -->
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="form-group">
                   <label>Kullanıcı Adı</label>
                   <input type="text" class="form-control" placeholder="Kullanıcı Adı ..." name="kullanici">
                 </div>
             </div>
             <!--user-password  -->
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="form-group">
                   <label>Sifre</label>
                   <input type="password" class="form-control" placeholder="Şifre ..." name="sifre">
                 </div>
             </div>
             <!--confirm-password  -->
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="form-group">
                   <label>Sifre Kontrol</label>
                   <input type="password" class="form-control" placeholder="Şifre ..." name="kontrolsifre">
                 </div>
             </div>
+            <!--user-phonenumber  -->
+            <div class="col-md-10">
+                <div class="form-group">
+                  <label>Telefon No</label>
+                  <input type="text" class="form-control" placeholder="Telefon No ..." name="telefonno">
+                </div>
+            </div>
             <!--user-mail  -->
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="form-group">
                   <label>E-Mail</label>
                   <input type="text" class="form-control" placeholder="E-Mail ..." name="mail">
                 </div>
             </div>
             <!--picture  -->
-            <div class="col-md-12">
+            <div class="col-md-10">
                     <div class="form-group">
                       <label>Kullanıcı Resmi</label>
                       <input type="file" class="form-control" placeholder="Resim Seçiniz ..." name="resim">
                     </div>
                 </div>
             <!--button  -->
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="form-group">
                     <button type="submit" class="btn btn-block btn-primary">KAYDET</button>
                 </div>

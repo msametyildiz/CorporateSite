@@ -14,7 +14,7 @@
           <img src="<?=SITE?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info" style="padding-top:12px">
-          <a href="<?=SITE?>login_UserSetting" class="d-block"><?=$_SESSION["adsoyad"]?></a>
+          <a href="<?=SITE?>kullanici-ayarlari" class="d-block"><?=$_SESSION["adsoyad"]?></a>
         </div>
       </div>
 
