@@ -11,7 +11,9 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image" style="padding:12px 0px 0px 0px">
-          <img src="<?=SITE?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <a href="<?=SITE?>kullanici-ayarlari">
+            <img src="<?=SITE?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          </a>
         </div>
         <div class="info" style="padding-top:12px">
           <a href="<?=SITE?>kullanici-ayarlari" class="d-block"><?=$_SESSION["adsoyad"]?></a>
