@@ -13,6 +13,8 @@ RewriteRule ^projeler$ index.php?sayfa=projeler [NC]
 RewriteRule ^blog$ index.php?sayfa=blog [NC]
 RewriteRule ^iletisim$ index.php?sayfa=iletisim [NC]
 RewriteRule ^hizmet-detay/(.*)$ index.php?sayfa=hizmet-detay&selflink=$1 [NC]
+RewriteRule ^proje-detay/(.*)$ index.php?sayfa=proje-detay&selflink=$1 [NC]
+RewriteRule ^blog-detay/(.*)$ index.php?sayfa=blog-detay&selflink=$1 [NC]
 
 
 
