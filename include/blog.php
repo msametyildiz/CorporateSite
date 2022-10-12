@@ -6,22 +6,24 @@
                <div class="col-xl-12">
                    <div class="bradcam_text text-center">
                        <h3>Bloglar</h3>
-                            <div class="search_form">
-                               <form action="#">
-                                            <div class="row align-items-center">
-                                                <div class="col-xl-5 col-md-4">
-                                                    <div class="input_field">
-                                                        <input type="text" class="form-control" placeholder="What are you finding?" require="require">
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-3 col-md-4">
-                                                    <div class="button_search">
-                                                        <button class="boxed-btn2" type="submit">Search</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                 </form>
-                            </div>
+                       
+                       <div class="search_form">
+                            <form action="#" method="post">
+                                <div class="row align-items-center" style="padding-top:10%;">
+                                    <div class="col-xl-5 col-md-4" style="margin-left:25%;">
+                                        <div class="input_field">
+                                            <input type="text" class="form-control" name="kelime" placeholder="What are you finding?" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-4" >
+                                        <div class="button_search" style="text-align: left;">
+                                            <button class="boxed-btn2" type="submit">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
                    </div>
                </div>
            </div>
@@ -34,7 +36,19 @@
     <div class="container" style="padding-top:7%">
    <div class="row align-items-center">
        <?php
-       $bloglar=$VT->VeriGetir("bloglar","WHERE durum=?",array(1),"ORDER BY sirano ASC");
+       if($_POST){
+            if(!empty($_POST["kelime"])){
+                $kelime=$VT->filter($_POST["kelime"]);
+                $bloglar=$VT->VeriGetir("bloglar","WHERE durum=? AND (baslik LIKE ? OR metin LIKE ?)",array(1,'%'.$kelime.'%','%'.$kelime .'%'),"ORDER BY sirano ASC");
+            }
+            else{
+                $bloglar=$VT->VeriGetir("bloglar","WHERE durum=?",array(1),"ORDER BY sirano ASC");
+            }
+       }
+       else{
+            $bloglar=$VT->VeriGetir("bloglar","WHERE durum=?",array(1),"ORDER BY sirano ASC");
+       }
+       
        if($bloglar!=false){
         for($i=0;$i<count($bloglar);$i++){
             if(!empty($bloglar[$i]["resim"])){$resim=$bloglar[$i]["resim"];}else{$resim='varsayilan.png';}
