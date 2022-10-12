@@ -22,13 +22,13 @@
             
     <!-- about_mission  -->
     <div class="about_mission">
-        <div class="container">
+        <div class="container" style="padding-bottom:7%;">
             <div class="row align-items-center">
             <?php
                 if(!empty($veri[0]["resim"])){
                     ?>
-                        <div class="col-xl-6 col-md-6">
-    <!--images/hizmetler/<?=$veri[0]["resim"]?>-->    <img src="<?=SITE?>img/about/small_1.png" style="width:100%; height:auto;">
+                        <div class="col-xl-6 col-md-6" style="padding-top: 0px;">
+                            <img src="<?=SITE?>images/hizmetler/<?=$veri[0]["resim"]?>" style="width:100%; height:auto;">
                         </div>
                         <div class="col-xl-6 col-md-6">
                             <div class="about_text">
