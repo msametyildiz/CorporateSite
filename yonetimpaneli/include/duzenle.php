@@ -35,7 +35,6 @@ if (!empty($_GET["tablo"]) && !empty($_GET["ID"])) {
             <div class="row">
               <div class="col-md-12">
                 <a href="<?= SITE ?>liste/<?= $kontrol[0]["tablo"] ?>" class="btn btn-info" style="float:right; margin-bottom=10px; margin-left:10px;"><i class="fa fa-bars"></i> LİSTE</a>
-                <a href="<?= SITE ?>ekle/<?= $kontrol[0]["tablo"] ?>" class="btn btn-success" style="float:right; margin-bottom=10px;"><i class="fa fa-plus"></i> YENİ EKLE</a>
               </div>
             </div>
             <!----------------------------------------------------------------------------------------------------------------------------------->

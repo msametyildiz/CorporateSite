@@ -132,11 +132,9 @@
 
                                   <td><?=$veriler[$i]["tarih"]?></td>
 
-                                  <td>
+                                  <td style="padding-left:3%">
 
-                                    <a href="<?=SITE?>proje-duzenle/<?=$kontrol[0]["tablo"]?>/<?=$veriler[$i]["ID"]?>" class="btn btn-warning btn-sm">Düzenle</a>
-
-                                    <a href="<?=SITE?>proje-sil/<?=$kontrol[0]["tablo"]?>/<?=$veriler[$i]["ID"]?>" class="btn btn-danger btn-sm">Kaldır</a>
+                                    <a href="<?=SITE?>proje-sil/<?=$kontrol[0]["tablo"]?>/<?=$veriler[$i]["ID"]?>" class="btn btn-danger btn-sm" >Kaldır</a>
 
                                   </td>
 

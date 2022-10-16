@@ -13,7 +13,6 @@ RewriteRule ^modul-sil$ index.php?sayfa=modul-sil [NC]
 RewriteRule ^proje-ekle$ index.php?sayfa=proje-ekle [NC]
 RewriteRule ^proje-liste/(.*)$ index.php?sayfa=proje-liste&tablo=$1 [NC]
 RewriteRule ^proje-sil/(.*)/(.*)$ index.php?sayfa=proje-sil&tablo=$1&ID=$2  [NC]
-RewriteRule ^proje-duzenle/(.*)/(.*)$ index.php?sayfa=proje-duzenle&tablo=$1&ID=$2  [NC]
 
 RewriteRule ^ekle/(.*)$ index.php?sayfa=ekle&tablo=$1 [NC]
 RewriteRule ^duzenle/(.*)/(.*)$ index.php?sayfa=duzenle&tablo=$1&ID=$2  [NC]
