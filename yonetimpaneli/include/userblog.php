@@ -30,6 +30,7 @@
                     $adsoyad = $VT->filter($_POST["adsoyad"]);
                     $aciklama = $VT->filter($_POST["aciklama"]);
                     $tablo = str_replace("-", "", $VT->selflink($aciklama));
+                    
                     $kontrol = $VT->VeriGetir("userblog", "WHERE tablo=?", array($tablo), "ORDER BY ID ASC", 1); // TODO
                     if ($kontrol != false) {
                         echo '<div class="alert alert-danger">! UYARI !<br>Proje konunuz eklenirken bir sorunla karşılaşıldı.Sorunlar şunlar olabilir.<br>
@@ -37,14 +38,32 @@
                                 -Aynı yazıya sahip mevcut bir kayıdınız olabilir.<br>
                                 -Sistemsel bir sorun oluşmuş olabilir.</div>';
                     } else {
-                        $ekle = $VT->SorguCalistir("INSERT INTO userblog (`adsoyad`, `tablo`, `aciklama`,`durum`) VALUES ('$adsoyad','$tablo','$aciklama',1)");
-                        if ($ekle != false) {
-                            echo '<div class="alert alert-success">Proje konunuz basarıyla eklenmiştir.</div>';
-                        } else {
-                            echo '<div class="alert alert-danger">! UYARI !<br>Proje konunuz eklenirken bir sorunla karşılaşıldı.Sorunlar şunlar olabilir.<br>
-                                -Aynı isimde mevcut bir kayıdınız olabilir.<br>
-                                -Sistemsel bir sorun oluşmuş olabilir.</div>';
+
+
+                        if (!empty($_FILES["resim"]["name"])) {
+                            $yukle = $VT->upload("resim", "../images/" .  "userblog" . "/");
+                            if ($yukle != false) {
+                              $ekle = $VT->SorguCalistir("INSERT INTO userblog (`adsoyad`, `tablo`,`resim`, `aciklama`,`durum`) VALUES ('$adsoyad','$tablo','$yukle','$aciklama',1)");
+                            } else {
+                      ?>
+                              <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARISIZ !</div>
+                            <?php
+                            }
+                          } else {
+                            $ekle = $VT->SorguCalistir("INSERT INTO userblog (`adsoyad`, `tablo`, `aciklama`,`durum`) VALUES ('$adsoyad','$tablo','$aciklama',1)");
+                            ?>
+                              <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARILI !</div>
+                            <?php
                         }
+                          if ($ekle != false) {
+                            ?>
+                            <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
+                          <?php
+                          } else {
+                          ?>
+                            <div class="alert alert-danger">! İŞLEM SIRASINDA BİR SORUNLA KARŞILAŞILDI. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ !</div>
+                          <?php
+                          }
                     }
                 } else {
                     echo '<div class="alert alert-danger">İşlem başarısızzz...</div>';

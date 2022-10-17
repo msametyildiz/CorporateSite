@@ -1,18 +1,16 @@
 <!-- header-start -->
 <header>
-    <div class="header-area ">
+    <div class="header-area " >
         <div id="sticky-header" class="main-header-area">
             <div class="container-fluid ">
                 <div class="header_bottom_border">
                     <div class="row align-items-center">
-                        <div class="col-xl-3 col-lg-2">
-                            <div class="logo">
-                                <a href="<?= SITE ?>" style="color:black;font-size:30px;background-image: url('<?= SITE ?>img/about/counter.png')">
+                            <div class="logo" >
+                                <a href="<?= SITE ?>" style="color:black;font-size:30px; background-image: url('<?= SITE ?>img/about/counter.png')">
                                     PAYLASTIKCA
                                     <!--<img src="<?= SITE ?>img/logo.png" alt="">-->
                                 </a>
                             </div>
-                        </div>
                         <div class="col-xl-6 col-lg-7">
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
@@ -43,10 +41,10 @@
                             </div>
                         </div>
                         <div>
-                            <div style="float: left; padding-left:80px;">
+                            <div style="float: left; padding-left:140px;" class="book_btn d-none d-lg-block">
                                 <a href="<?= SITE ?>iletisim" class="buttonIDUst">BİZE ULAŞIN</a>
                             </div>
-                            <div style="float: right; padding-left:5px;">
+                            <div style="float: right; padding-left:5px;" class="book_btn d-none d-lg-block">
                                 <a href="<?= SITE ?>bagis" class="buttonIDUst">BAĞIŞ YAP  <i class="fa fa-heart" aria-hidden="true" style="padding:3px;"></i></a>
                             </div>
                         </div>

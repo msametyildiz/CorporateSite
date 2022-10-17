@@ -1,13 +1,11 @@
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 <!-- slider_area_start -->
-<div class="slider_area">
+<div class="slider_area" style="max-height: 113px;background-color:white;">
     <div class="single_slider  d-flex align-items-center slider_bg_1">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-xl-10">
                     <div class="slider_text text-center justify-content-center">
-                        <p>MSY</p>
-                        <h3>Kurumsal Firma Scripti</h3>
-
                     </div>
                 </div>
             </div>
@@ -15,6 +13,28 @@
     </div>
 </div>
 <!-- slider_area_end -->
+<div style="height:600px;background-color:#b3ffdf;">
+    <div class="  d-flex align-items-center ">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-12">
+                    <section id="anasayfa" style="height: 600px;background-size: cover;	background-attachment: fixed;background-position: center;">
+                        <div id="back">
+
+                        </div>
+                        <div id="icerik" style="position: absolute;	top: 50%;left: 40%;transform:translate(-50%,-50%);color: white;	font-size: 20px;">
+                            <h2 style="font-family: 'Alkalami', serif;">NECAT DERNEĞİ</h2><br>
+                            <hr style="width:300px;text-align:left;margin-left:0;height:2px;border-width:0;color:gray;background-color:gray;">
+                            <h1 style="margin-top:16%;font-family: 'Kalam', cursive;">" ELİNİZİ İYİLİK İÇİN UZATIN "</h1>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--
 < <div class="popular_catagory_area" style="padding-top:5%;padding-bottom:4%">
     <div class="container">
@@ -237,7 +257,7 @@
                     <div class="col-xl-12">
                         <div class="testmonial_active owl-carousel">
 
-                        <!---------------------------------------------------------------------->
+                            <!---------------------------------------------------------------------->
                             <div class="single_carousel">
                                 <div class="single_testmonial text-center">
                                     <div class="quote">
@@ -257,8 +277,8 @@
                                     </div>
                                 </div>
                             </div>
-                        <!---------------------------------------------------------------------->
-                            
+                            <!---------------------------------------------------------------------->
+
                         </div>
                     </div>
                 </div>
