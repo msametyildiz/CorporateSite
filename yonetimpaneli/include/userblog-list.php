@@ -4,7 +4,7 @@ if (!empty($_GET["tablo"])) {
 
   $tablo = $VT->filter($_GET["tablo"]);
 
-  $kontrol = $VT->VeriGetir("moduller", "WHERE tablo=? AND durum=?", array($tablo, 1), "ORDER BY ID ASC", 1);
+  $kontrol = $VT->VeriGetir("moduller", "WHERE tablo=? AND durum=?", array($tablo, 3), "ORDER BY ID ASC", 1);
 
   if ($kontrol != false) {
 
@@ -26,7 +26,7 @@ if (!empty($_GET["tablo"])) {
 
             <div class="col-sm-6">
 
-              <h1 class="m-0"><?= $kontrol[0]["baslik"] ?></h1>
+              <h1 class="m-0">Kullanıcı Yazıları</h1>
 
             </div><!-- /.col -->
 
@@ -36,7 +36,7 @@ if (!empty($_GET["tablo"])) {
 
                 <li class="breadcrumb-item"><a href="<?= SITE ?>">Anasayfa</a></li>
 
-                <li class="breadcrumb-item active"><?= $kontrol[0]["baslik"] ?></li>
+                <li class="breadcrumb-item active">Kullanıcı Yazıları</li>
 
               </ol>
 
@@ -62,7 +62,7 @@ if (!empty($_GET["tablo"])) {
 
             <div class="col-md-12">
 
-              <a href="<?= SITE ?>ekle/<?= $kontrol[0]["tablo"] ?>" class="btn btn-success" style="float:right; margin-bottom=10px;"><i class="fa fa-plus"></i>YENİ EKLE</a>
+              <a href="<?= SITE ?>userblog" class="btn btn-success" style="float:right; margin-bottom=10px;"><i class="fa fa-plus"></i>YENİ EKLE</a>
 
             </div>
             <div class="col-md-12"><br></div>
@@ -101,7 +101,7 @@ if (!empty($_GET["tablo"])) {
 
                   <?php
 
-                  $veriler = $VT->VeriGetir($kontrol[0]["tablo"], "", "", "ORDER BY ID ASC");
+                  $veriler = $VT->VeriGetir("userblog", "", "", "ORDER BY ID ASC");
 
                   if ($veriler != false) {
 
@@ -125,9 +125,9 @@ if (!empty($_GET["tablo"])) {
 
                         <td><?php
 
-                            echo stripslashes($veriler[$i]["baslik"]); //stripslashes -->html taglarını temizlemiyor
+                            echo stripslashes($veriler[$i]["adsoyad"]); //stripslashes -->html taglarını temizlemiyor
 
-                            echo '<br/>' . mb_substr(strip_tags(stripslashes($veriler[$i]["metin"])), 0, 130, "UTF-8") . "...";/*strip_tags -> html taglarını temizliyor*/ ?></td>
+                            echo '<br/>' . mb_substr(strip_tags(stripslashes($veriler[$i]["aciklama"])), 0, 130, "UTF-8") . "...";/*strip_tags -> html taglarını temizliyor*/ ?></td>
 
                         <td>
 
@@ -145,9 +145,9 @@ if (!empty($_GET["tablo"])) {
 
                         <td>
 
-                          <a href="<?= SITE ?>duzenle/<?= $kontrol[0]["tablo"] ?>/<?= $veriler[$i]["ID"] ?>" class="btn btn-warning btn-sm">Düzenle</a>
+                          <a href="<?= SITE ?>userblog-edit/<?= $kontrol[0]["tablo"] ?>/<?= $veriler[$i]["ID"] ?>" class="btn btn-warning btn-sm">Düzenle</a>
 
-                          <a href="<?= SITE ?>sil/<?= $kontrol[0]["tablo"] ?>/<?= $veriler[$i]["ID"] ?>" class="btn btn-danger btn-sm">Kaldır</a>
+                          <a href="<?= SITE ?>userblog-delete/<?= $kontrol[0]["tablo"] ?>/<?= $veriler[$i]["ID"] ?>" class="btn btn-danger btn-sm">Kaldır</a>
 
                         </td>
 
@@ -169,6 +169,7 @@ if (!empty($_GET["tablo"])) {
                 </tbody>
 
                 
+
               </table>
 
             </div>
@@ -201,7 +202,7 @@ if (!empty($_GET["tablo"])) {
 
   ?>
 
-    <meta http-equiv="refresh" content="0;url=<?= SITE ?>">
+    <meta http-equiv="refresh" content="5;url=<?= SITE ?>">
 
   <?php
 
@@ -212,7 +213,7 @@ if (!empty($_GET["tablo"])) {
 
   ?>
 
-  <meta http-equiv="refresh" content="0;url=<?= SITE ?>">
+  <meta http-equiv="refresh" content="5;url=<?= SITE ?>">
 
 <?php
 

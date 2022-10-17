@@ -10,9 +10,15 @@ RewriteBase /kurumsalsite/yonetimpaneli
 RewriteRule ^liste/(.*)$ index.php?sayfa=liste&tablo=$1 [NC]
 RewriteRule ^modul-ekle$ index.php?sayfa=modul-ekle [NC]
 RewriteRule ^modul-sil$ index.php?sayfa=modul-sil [NC]
+
+
 RewriteRule ^proje-ekle$ index.php?sayfa=proje-ekle [NC]
 RewriteRule ^proje-liste/(.*)$ index.php?sayfa=proje-liste&tablo=$1 [NC]
 RewriteRule ^proje-sil/(.*)/(.*)$ index.php?sayfa=proje-sil&tablo=$1&ID=$2  [NC]
+RewriteRule ^userblog$ index.php?sayfa=userblog [NC]
+RewriteRule ^userblog-list/(.*)$ index.php?sayfa=userblog-list&tablo=$1 [NC]
+RewriteRule ^userblog-delete/(.*)/(.*)$ index.php?sayfa=userblog-delete&tablo=$1&ID=$2  [NC]
+RewriteRule ^duzenle/(.*)/(.*)$ index.php?sayfa=duzenle&tablo=$1&ID=$2  [NC]
 
 RewriteRule ^ekle/(.*)$ index.php?sayfa=ekle&tablo=$1 [NC]
 RewriteRule ^duzenle/(.*)/(.*)$ index.php?sayfa=duzenle&tablo=$1&ID=$2  [NC]

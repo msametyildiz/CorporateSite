@@ -1,0 +1,112 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Kullanıcı Yazıları Ekle</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?= SITE ?>">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Kullanıcı Yazıları Ekle</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="<?= SITE ?>userblog-list/<?= $moduller[0]["tablo"] ?>" class="btn btn-info" style="float:right; margin-bottom=10px; margin-left:10px;"><i class="fa fa-bars"></i> LİSTE</a>
+                </div>
+            </div>
+            <div class="col-md-12"><br></div>
+            <?php
+            if ($_POST) {
+                if (!empty($_POST["adsoyad"])&&!empty($_POST["aciklama"])) {
+                    $adsoyad = $VT->filter($_POST["adsoyad"]);
+                    $aciklama = $VT->filter($_POST["aciklama"]);
+                    $tablo = str_replace("-", "", $VT->selflink($aciklama));
+                    $kontrol = $VT->VeriGetir("userblog", "WHERE tablo=?", array($tablo), "ORDER BY ID ASC", 1); // TODO
+                    if ($kontrol != false) {
+                        echo '<div class="alert alert-danger">! UYARI !<br>Proje konunuz eklenirken bir sorunla karşılaşıldı.Sorunlar şunlar olabilir.<br>
+                                -Boş alan olabilir.<br>
+                                -Aynı yazıya sahip mevcut bir kayıdınız olabilir.<br>
+                                -Sistemsel bir sorun oluşmuş olabilir.</div>';
+                    } else {
+                        $ekle = $VT->SorguCalistir("INSERT INTO userblog (`adsoyad`, `tablo`, `aciklama`,`durum`) VALUES ('$adsoyad','$tablo','$aciklama',1)");
+                        if ($ekle != false) {
+                            echo '<div class="alert alert-success">Proje konunuz basarıyla eklenmiştir.</div>';
+                        } else {
+                            echo '<div class="alert alert-danger">! UYARI !<br>Proje konunuz eklenirken bir sorunla karşılaşıldı.Sorunlar şunlar olabilir.<br>
+                                -Aynı isimde mevcut bir kayıdınız olabilir.<br>
+                                -Sistemsel bir sorun oluşmuş olabilir.</div>';
+                        }
+                    }
+                } else {
+                    echo '<div class="alert alert-danger">İşlem başarısızzz...</div>';
+                }
+            }
+            ?>
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form role="form" action="#" method="post">
+                                <div class="col-md-8">
+                                    <div class="card-body card card-primary">
+                                        <div class="row" style="margin-left:3%;">
+                                            <!-- user-namelastname -->
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Ad Soyad</label>
+                                                    <input type="text" class="form-control" placeholder="Ad Soyad ..." name="adsoyad">
+                                                </div>
+                                            </div>
+                                            <!-- user-namelastname -->
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Açıklama</label>
+                                                    <input type="text" class="form-control" placeholder="Açıklama ..." name="aciklama">
+                                                </div>
+                                            </div>
+                                            <!-- Text area
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Açıklama</label>
+                                    <textarea id="summernote" name="aciklama" placeholder="Metin Alanı..."></textarea>
+                                </div>
+                            </div>-->
+                                            <!--pictures  -->
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Resimler</label>
+                                                    <input type="file" class="form-control" placeholder="Resim Seçiniz ..." name="resim">
+                                                </div>
+                                            </div>
+                                            <!--button  -->
+                                            <div class="col-md-10">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-block btn-primary">KAYDET</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.row -->
+                                        </div>
+                                        <!-- /.card-body -->
+
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                            </form>
+                       
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div><!-- /.container-fluid -->
+    </section>
+</div>  

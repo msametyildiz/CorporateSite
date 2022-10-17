@@ -68,7 +68,7 @@
     </div>
 
     -->
-<div class="explorer_europe" style="padding-top:5%;padding-bottom:4%">
+<div class="explorer_europe" style="padding-top:5%;">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
@@ -156,7 +156,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-content" id="nav-tabContent" style="padding-top:4%;padding-bottom:4%">
+            <div class="tab-content" id="nav-tabContent" style="padding-top:4%;padding-bottom:6%">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row">
                         <?php

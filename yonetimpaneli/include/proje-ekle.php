@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Proje Ekle</h1>
+                    <h1 class="m-0">Proje Konusu Ekle</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= SITE ?>">Anasayfa</a></li>
-                        <li class="breadcrumb-item active">Proje Ekle</li>
+                        <li class="breadcrumb-item active">Proje Konusu Ekle</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -43,7 +43,6 @@
                     echo '<div class="alert alert-success">Proje konunuz basarıyla eklenmiştir.</div>';
                 } else {
                     echo '<div class="alert alert-danger">! UYARI !<br>Proje konunuz eklenirken bir sorunla karşılaşıldı.Sorunlar şunlar olabilir.<br>
-                                -Boş alan olabilir.<br>
                                 -Aynı isimde mevcut bir kayıdınız olabilir.<br>
                                 -Sistemsel bir sorun oluşmuş olabilir.</div>';
                 }

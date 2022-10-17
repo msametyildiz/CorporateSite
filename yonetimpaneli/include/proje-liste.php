@@ -156,23 +156,7 @@
 
                   </tbody>
 
-                  <tfoot>
-
-                  <tr>
-
-                      <th>Sıra</th>
-
-                      <th>Açıklama</th>
-
-                      <th>Durum</th>
-
-                      <th>Tarih</th>
-
-                      <th>İşlem</th>
-
-                  </tr>
-
-                  </tfoot>
+                  
 
                 </table>
 
