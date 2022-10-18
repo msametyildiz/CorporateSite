@@ -34,7 +34,6 @@
                     $kontrol = $VT->VeriGetir("userblog", "WHERE tablo=?", array($tablo), "ORDER BY ID ASC", 1); // TODO
                     if ($kontrol != false) {
                         echo '<div class="alert alert-danger">! UYARI !<br>Proje konunuz eklenirken bir sorunla karşılaşıldı.Sorunlar şunlar olabilir.<br>
-                                -Boş alan olabilir.<br>
                                 -Aynı yazıya sahip mevcut bir kayıdınız olabilir.<br>
                                 -Sistemsel bir sorun oluşmuş olabilir.</div>';
                     } else {
@@ -43,17 +42,18 @@
                         if (!empty($_FILES["resim"]["name"])) {
                             $yukle = $VT->upload("resim", "../images/" .  "userblog" . "/");
                             if ($yukle != false) {
-                              $ekle = $VT->SorguCalistir("INSERT INTO userblog (`adsoyad`, `tablo`,`resim`, `aciklama`,`durum`) VALUES ('$adsoyad','$tablo','$yukle','$aciklama',1)");
+                            $ekle= $VT->SorguCalistir("INSERT INTO userblog", "SET adsoyad=?,tablo=?, resim=?, aciklama=?, durum=?, tarih=?", array($adsoyad, $tablo,$yukle, $aciklama,1,date("y-m-d")));
+                            ?>
+                              <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARILI !</div>
+                            <?php
                             } else {
                       ?>
                               <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARISIZ !</div>
                             <?php
                             }
                           } else {
-                            $ekle = $VT->SorguCalistir("INSERT INTO userblog (`adsoyad`, `tablo`, `aciklama`,`durum`) VALUES ('$adsoyad','$tablo','$aciklama',1)");
-                            ?>
-                              <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARILI !</div>
-                            <?php
+                            $ekle= $VT->SorguCalistir("INSERT INTO userblog", "SET adsoyad=?,tablo=?, aciklama=?, durum=?, tarih=?", array($adsoyad, $tablo, $aciklama,1,date("y-m-d")));
+                            
                         }
                           if ($ekle != false) {
                             ?>
@@ -66,7 +66,7 @@
                           }
                     }
                 } else {
-                    echo '<div class="alert alert-danger">İşlem başarısızzz...</div>';
+                    echo '<div class="alert alert-danger">İşlem başarısız. Lütfen boş bırakılan yereleri doldurun.</div>';
                 }
             }
             ?>

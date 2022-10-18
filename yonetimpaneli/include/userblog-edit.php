@@ -4,94 +4,69 @@ if (!empty($_GET["tablo"]) && !empty($_GET["ID"])) {
   $tablo = $VT->filter($_GET["tablo"]);
   $ID = $VT->filter($_GET["ID"]);
   $kontrol = $VT->VeriGetir("moduller", "WHERE tablo=? ", array($tablo), "ORDER BY ID ASC", 1);
-  
   if ($kontrol != false) {
     $veri = $VT->VeriGetir("userblog", "WHERE ID=?", array($ID), "ORDER BY ID ASC", 1);
+    
     if ($veri != false) {
 ?>
-
-
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-          <div class="container-fluid">
-            <div class="row mb-2">
-              <div class="col-sm-6">
-                <h1 class="m-0"><?= $kontrol[0]["baslik"] ?> Düzenleme Sayfası</h1>
-              </div><!-- /.col -->
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="<?= SITE ?>">Anasayfa</a></li>
-                  <li class="breadcrumb-item active"><?= $kontrol[0]["baslik"] ?></li>
-                </ol>
-              </div><!-- /.col -->
-            </div><!-- /.row -->
-          </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
-
-        <section class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-12">
-                <a href="<?= SITE ?>liste/<?= $kontrol[0]["tablo"] ?>" class="btn btn-info" style="float:right; margin-bottom=10px; margin-left:10px;"><i class="fa fa-bars"></i> LİSTE</a>
-              </div>
-            </div>
-            <!----------------------------------------------------------------------------------------------------------------------------------->
-            <?php
-            if ($_POST) {
-              if (!empty($_POST["kategori"]) && !empty($_POST["baslik"]) && !empty($_POST["anahtar"]) && !empty($_POST["description"]) && !empty($_POST["sirano"])) {
-                $kategori = $VT->filter($_POST["kategori"]);
-                $baslik = $VT->filter($_POST["baslik"]);
-                $anahtar = $VT->filter($_POST["anahtar"]);
-                $selflink = $VT->selflink($baslik);
-                $description = $VT->filter($_POST["description"]);
-                $sirano = $VT->filter($_POST["sirano"]);
-                $metin = $VT->filter($_POST["metin"], true); //true yazılmasının sebebi editor kullnıldığı için html komutlarını temizlemesini istemiyorum
-
-                foreach ($_FILES["resim"]["name"] as $key => $value) {
-                  if (!empty($_FILES["resim"]["name"])) {
-                    $yukle = $VT->upload("resim", "../images/" . $kontrol[0]["tablo"] . "/");
-                    if ($yukle != false) {
-                      $ekle = $VT->SorguCalistir("UPDATE " . $kontrol[0]["tablo"], "SET baslik=?, selflink=?, kategori=?, metin=?, resim=?, anahtar=?, description=?, durum=?,sirano=?,tarih=? WHERE ID=?", array($baslik, $selflink, $kategori, $metin, $yukle, $anahtar, $description, 1, $sirano, date("Y-m-d"), $veri[0]["ID"]));
-                    } else { ?>
-                      <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARISIZ !</div>
-                <?php
-                    }
-                  } else {
-                    $ekle = $VT->SorguCalistir("UPDATE " . $kontrol[0]["tablo"], "SET baslik=?, selflink=?, kategori=?, metin=?, anahtar=?, description=?, durum=?, sirano=?, tarih=? WHERE ID=?", array($baslik, $selflink, $kategori, $metin, $anahtar, $description, 1, $sirano, date("Y-m-d"), $veri[0]["ID"]));
-                  }
-                }
-
-                ?>
-
-                <?php
-
-                if ($ekle != false) {
-                  $veri = $VT->VeriGetir($kontrol[0]["tablo"], "WHERE ID=?", array($veri[0]["ID"]), "ORDER BY ID ASC", 1);
-                ?>
-                  <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
-                <?php
-                } else {
-                ?>
-                  <div class="alert alert-danger">! İŞLEM SIRASINDA BİR SORUNLA KARŞILAŞILDI. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ !</div>
-                <?php
-                }
-              } else {
-                ?>
-                <div class="alert alert-danger">! BOŞ BIRAKILAN ALANLARI DOLDURUNUZ !</div>
-            <?php
-              }
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Blog Düzenleme Sayfası</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?=SITE?>">Anasayfa</a></li>
+              <li class="breadcrumb-item active">Blog Düzenleme Sayfası</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+      <section class="content">
+        <div class="container-fluid">
+<!----------------------------------------------------------------------------------------------------------------------------------->
+<?php 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+if($_POST){
+  if (!empty($_POST["adsoyad"]) && !empty($_POST["aciklama"])) {
+    $adsoyad = $VT->filter($_POST["adsoyad"]);
+    $aciklama = $VT->filter($_POST["aciklama"]);
+    $tablo = str_replace("-", "", $VT->selflink($aciklama));
+    $guncelle = $VT->SorguCalistir("UPDATE userblog", "SET adsoyad=?, aciklama=?, tablo=?, durum=?, tarih=? WHERE ID=?", array($adsoyad, $aciklama, $tablo, 1,date("y-m-d"), $ID));
+     if($guncelle!=false){
+                  ?>
+                    <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
+                    <meta http-equiv="refresh" content="1.5;url=<?= SITE ?>userblog-edit/<?= $kontrol[0]["tablo"] ?>/<?=$ID?>">
+                    
+                  <?php
             }
+            else{
+              $info=false;
+                  ?>
+                  <div class="alert alert-danger">! İŞLEM SIRASINDA BİR SORUNLA KARŞILAŞILDI. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ !</div>
+                  <?php
+            }
+      }
+      else{
             ?>
-            <!----------------------------------------------------------------------------------------------------------------------------------->
-            <!-- SELECT2 EXAMPLE -->
-            <!-- /.card-header -->,
-            <form action="#" method="post" enctype="multipart/form-data">
+            <div class="alert alert-danger">! BOŞ BIRAKILAN ALANLARI DOLDURUNUZ !</div>
+            <?php
+      }
+}
+?>
+
+<form action="#" method="post" enctype="multipart/form-data">
               <div class="col-md-8">
                 <div class="card-body card card-primary">
                   <div class="row">
-                    
+
 
                     <!-- header in form -->
                     <div class="col-md-12">
@@ -109,18 +84,16 @@ if (!empty($_GET["tablo"]) && !empty($_GET["ID"])) {
                         </textarea>
                       </div>
                     </div>
-                    
+
                     <!--pictures  -->
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Resimler</label>
-                        <input type="file" class="form-control" placeholder="Resim Seçiniz ..." name="resim[]" multiple>
+                        <input type="file" class="form-control" placeholder="Resim Seçiniz ..." name="resim" multiple>
                       </div>
                     </div>
-                    <div class="col-md-12">
-                        <div>
-                            <a href="#"><img src="<?=SITE?>/images/<?=$veri[0]["resim"]?>" alt="Örnek Resim" /></a>
-                        </div>
+
+                    <div class="col-md-10">
                       <div class="form-group">
                         <button type="submit" class="btn btn-block btn-primary">KAYDET</button>
                       </div>
@@ -134,19 +107,16 @@ if (!empty($_GET["tablo"]) && !empty($_GET["ID"])) {
                 <!-- /.card -->
               </div>
             </form>
+<!----------------------------------------------------------------------------------------------------------------------------------->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
 
-            <!----------------------------------------------------------------------------------------------------------------------------------->
-
-          </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-      </div>
-
-
-    <?php
+  <?php
     } else {
     ?>
-      <meta http-equiv="refresh" content="0;url=<?= SITE ?>liste/<?= $kontrol[0]["tablo"] ?>">
+      <meta http-equiv="refresh" content="0;url=<?= SITE ?>userblog-list/<?= $kontrol[0]["tablo"] ?>">
     <?php
     }
   } else {
