@@ -9363,3 +9363,9 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.upbuttoncl{
+  float:right;
+  padding: 8px 8px;
+  background-color:red;
+}

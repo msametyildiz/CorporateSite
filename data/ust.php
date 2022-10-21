@@ -1,6 +1,6 @@
 <!-- header-start -->
 <header>
-    <div class="header-area " style="background-color: #a5c4be;" >
+    <div class="header-area " style="background-color: #fff;" >
         <div id="sticky-header" class="main-header-area">
             <div class="container-fluid ">
                 <div class="header_bottom_border">
@@ -37,10 +37,10 @@
                                         <li ><a href="<?= SITE ?>blog">BLOG</a></li>
                                         <li ><a href="<?= SITE ?>iletisim">İLETİŞİM</a></li>
                                         <li>
-                                        <li style="float:right;padding: 8px 8px;background-color:red;border-radius 30px;"><a href="<?= SITE ?>bagis" onMouseOver="this.style.color='white'"
-   onMouseOut="this.style.color='black'">BAĞIŞ YAP  <i class="fa fa-heart" aria-hidden="true" style="padding:3px;"></i></a></li>
+                                        <li style="float:right;padding: 8px 8px;background-color:red;"><a href="<?= SITE ?>bagis" onMouseOver="this.style.color='white'"
+   onMouseOut="this.style.color='black'">BAĞIŞ YAP  <i class="fa fa-heart" aria-hidden="true" style="font-size:15px;"></i></a></li>
 
-                                        <li style="float:right;padding: 8px 8px;background-color:red;border-radius 30px;"><a href="<?= SITE ?>iletisim"  onMouseOver="this.style.color='white'"
+                                        <li style="float:right;padding: 8px 8px;background-color:red;"><a href="<?= SITE ?>iletisim"  onMouseOver="this.style.color='white'"
    onMouseOut="this.style.color='black'">BİZE ULAŞIN</a></li>
                                         </li>
                                     </ul>
