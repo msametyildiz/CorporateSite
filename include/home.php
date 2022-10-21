@@ -14,7 +14,7 @@
 </div>
 <!-- slider_area_end -->
 
-<div><div style="height:600px; background-image: url('<?= SITE ?>img/banner/mainpic.jpg');background-size: cover;background-attachment: fixed;	background-position:center; opacity: 0.65;">
+<div><div style="height:600px; background-image: url('<?= SITE ?>img/banner/mainpic.jpg');background-size: cover;background-attachment: fixed;	background-position:center; background-color:gray;opacity: 0.5;">
     <div class="  d-flex align-items-center ">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -24,9 +24,9 @@
 
                         </div>
                         <div id="icerik" style="position: absolute;	top: 50%;left: 40%;transform:translate(-50%,-50%);color: white;	font-size: 20px;">
-                            <h2 style="font-family: 'Alkalami', serif;">NECAT DERNEĞİ</h2><br>
-                            <hr style="width:300px;text-align:left;margin-left:0;height:2px;border-width:0;color:gray;background-color:white;">
-                            <h1 style="margin-top:16%;font-family: 'Kalam', cursive;">" ELİNİZİ İYİLİK İÇİN UZATIN "</h1>
+                            <h2 style="font-family: 'Alkalami', serif;color:black;">NECAT DERNEĞİ</h2><br>
+                            <hr style="width:50%;text-align:left;margin-left:0;height:2px;border-width:0;color:gray;background-color:white;">
+                            <h1 style="margin-top:16%;font-family: 'Kalam', cursive;color:black;">" ELİNİZİ İYİLİK İÇİN UZATIN "</h1>
                         </div>
                     </section>
 
@@ -247,9 +247,10 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="section_title mb-60 text-center">
-                            <p>Testimonials</p>
+                            <p>NECAT DERNEĞİ</p>
                             <h3>
-                                What our Client Says
+                                Günün Sözü
+                                
                             </h3>
                         </div>
                     </div>
@@ -259,25 +260,32 @@
                         <div class="testmonial_active owl-carousel">
 
                             <!---------------------------------------------------------------------->
+                            <?php
+       $userblog=$VT->VeriGetir("userblog","WHERE durum=?",array(1),"ORDER BY ID ASC");
+       if($userblog!=false){
+        for($i=0;$i<count($userblog);$i++){
+            if(!empty($userblog[$i]["resim"])){$resim=$projeler[$i]["resim"];}else{$resim='varsayilan.png';}
+            ?>
                             <div class="single_carousel">
                                 <div class="single_testmonial text-center">
                                     <div class="quote">
                                         <img src="img/svg_icon/quote.svg" alt="">
                                     </div>
-                                    <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                        sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
-                                        <br>
-                                        Fusce ac mattis nulla. Morbi eget ornare dui.
-                                    </p>
+                                    <p><?=$userblog[$i]["aciklama"]?></p>
                                     <div class="testmonial_author">
                                         <div class="thumb">
-                                            <img src="img/case/testmonial.png" alt="">
+                                            <img src="<?=$resim?>" alt="">
                                         </div>
-                                        <h3>Robert Thomson</h3>
+                                        <h3><?=$userblog[$i]["adsoyad"]?></h3>
                                         <span>Business Owner</span>
                                     </div>
                                 </div>
                             </div>
+
+                            <?php
+        }
+       }
+       ?>
                             <!---------------------------------------------------------------------->
 
                         </div>

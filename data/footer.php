@@ -1,80 +1,82 @@
 <!-- footer start -->
-    <footer class="footer">
+    <footer class="footer" style="background-color: #a5c4be;">
         <div class="footer_top">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-4 col-md-6 col-lg-3">
                         <div class="footer_widget">
-                            <!--<div class="footer_logo">
+                            <div class="footer_logo">
                                 <a href="#">
                                     <img src="img/footer_logo.png" alt="">
                                 </a>
-                            </div>-->
+                            </div>
                             <div class="logo">
                                     <a href="<?=SITE?>" style="color:black;font-size:30px;background-image: url('<?=SITE?>img/about/counter.png')">
                                         PAYLASTIKCA
                                         <!--<img src="<?=SITE?>img/logo.png" alt="">-->
                                     </a>
                                 </div>
-                            <p>
-                                Esteem spirit temper too say adieus who <br> direct esteem. It esteems luckily or <br>
-                                picture placing drawing.
-                            </p>
+                            <p><br> ELİNİZİ İYİLİK İÇİN UZATIN</p>
                             <div class="socail_links">
                                 <ul>
                                     <li>
-                                        <a href="#">
-                                            <i class="ti-facebook"></i>
-                                        </a>
+                                        <a href="#"><i class="ti-facebook"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <i class="fa fa-google-plus"></i>
-                                        </a>
+                                        <a href="#" ><i class="fa fa-telegram" style="color:#0088cc;"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
                                     </li>
                                 </ul>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-xl-2 col-md-6 col-lg-3">
+                    <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Services
+                                Hizmetler
                             </h3>
                             <ul>
-                                <li><a href="#">SEO/SEM </a></li>
-                                <li><a href="#">Web design </a></li>
-                                <li><a href="#">Ecommerce</a></li>
-                                <li><a href="#">Digital marketing</a></li>
+                                <?php
+                                $services=$VT->VeriGetir("hizmetler","WHERE durum=?",array(1),"ORDER BY ID ASC");
+                                if($services!=false){
+                                    for($i=0;$i<count($services);$i++){
+                                        ?>
+                                        
+                                <li><a href="<?=SITE?>hizmet-detay/<?= stripslashes($services[$i]["selflink"]) ?>"><?= stripslashes($services[$i]["baslik"]) ?></a></li>
+                                <?php    }
+                                }
+                                ?>
                             </ul>
 
                         </div>
                     </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
+                    <div class="col-xl-4 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Useful Links
-                            </h3>
-                            <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#"> Contact</a></li>
-                                <li><a href="#">Support</a></li>
+                                 Necat Derneği</h3>
+                            <ul style="display:inline-block;">
+                                <li><a href="<?= SITE ?>kurumsal/hakkimizda">Hakkımızda</a></li>
+                                <li><a href="<?= SITE ?>kurumsal/misyonumuz">Misyonumuz</a></li>
+                                <li ><a href="<?= SITE ?>hizmetler">Hizmetler</a></li>
+                                <li ><a href="<?= SITE ?>projeler">Projeler</a></li>
+                            </ul>
+                            <ul style="display:inline-block;padding-left:15%;" >
+                                
+                                <li ><a href="<?= SITE ?>blog">Bloglar</a></li>
+                                <li ><a href="<?= SITE ?>iletisim">İletişim</a></li>
+                                <li><a href="#">Destekçilerimiz</a></li>
+                                <li><a href="#">Destekçilerimiz</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6 col-lg-4">
+                    
+                    <!--<div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="footer_widget">
                             <h3 class="footer_title">
                                 Subscribe
@@ -86,7 +88,7 @@
                             <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems
                                 luckily.</p>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

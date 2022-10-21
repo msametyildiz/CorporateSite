@@ -19,8 +19,8 @@ if(!empty($_GET["selflink"])){
    <!--/ bradcam_area  -->
    
 <!-- about_mission  -->
-<div class="about_mission">
-<div class="container" style="margin-bottom: 80px;">
+<div class="about_mission" style="margin-top:7%;padding-bottom:7%">
+<div class="container" >
    <div class="row align-items-center">
        <?php
        if(!empty($veri[0]["resim"])){

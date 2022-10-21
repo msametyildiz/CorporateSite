@@ -33,7 +33,7 @@
    
 <!-- about_mission  -->
 <div class="explorer_europe">
-    <div class="container" style="padding-top:7%">
+    <div class="container" style="padding-top:7%;padding-bottom:7%">
    <div class="row align-items-center">
        <?php
        if($_POST){

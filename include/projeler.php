@@ -15,7 +15,7 @@
    
 <!-- about_mission  -->
 <div class="explorer_europe">
-    <div class="container" style="padding-top:7%">
+    <div class="container" style="margin-top:7%;padding-bottom:7%">
    <div class="row align-items-center">
        <?php
        $projeler=$VT->VeriGetir("projeler","WHERE durum=?",array(1),"ORDER BY sirano ASC");
