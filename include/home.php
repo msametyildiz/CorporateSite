@@ -261,11 +261,12 @@
 
                             <!---------------------------------------------------------------------->
                             <?php
-       $userblog=$VT->VeriGetir("userblog","WHERE durum=?",array(1),"ORDER BY ID ASC");
-       if($userblog!=false){
-        for($i=0;$i<count($userblog);$i++){
-            if(!empty($userblog[$i]["resim"])){$resim=$projeler[$i]["resim"];}else{$resim='varsayilan.png';}
-            ?>
+       
+            $userblog=$VT->VeriGetir("userblog","WHERE durum=?",array(1),"ORDER BY ID ASC");
+            if($userblog!=false){
+            for($i=0;$i<count($userblog);$i++){
+                 if(!empty($userblog[$i]["resim"])){$resim=$projeler[$i]["resim"];}else{$resim='varsayilan.png';}
+                ?>
                             <div class="single_carousel">
                                 <div class="single_testmonial text-center">
                                     <div class="quote">
@@ -283,9 +284,9 @@
                             </div>
 
                             <?php
-        }
-       }
-       ?>
+                   }
+                }    
+                ?>
                             <!---------------------------------------------------------------------->
 
                         </div>
