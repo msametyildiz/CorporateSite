@@ -63,7 +63,7 @@
                     </div>
                     
                 </div><div class="col-md-12 text-center" >
-                            <a href="/bagis-bildirim-formu" class="buttonIDBagis">Bağış Bildirim Formu</a>
+                            <a href="<?=SITE?>bagis-bilgilendirme-formu" class="buttonIDBagis">Bağış Bildirim Formu</a>
                         </div>
             </div>
 
