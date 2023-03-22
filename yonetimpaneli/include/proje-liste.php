@@ -77,7 +77,7 @@
 
                       <th style="width:50px;">Sıra</th>
 
-                      <th>Açıklama</th>
+                      <th>Projeler</th>
 
                       <th style="width:50px;">Durum</th>
 

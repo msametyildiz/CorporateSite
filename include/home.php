@@ -240,7 +240,6 @@
             </div>
         </div>
         <!--/ sprayed_area end  -->
-
         <!-- testimonial_area  -->
         <div class="testimonial_area  ">
             <div class="container">
@@ -295,3 +294,5 @@
             </div>
         </div>
         <!-- /testimonial_area  -->
+
+        
