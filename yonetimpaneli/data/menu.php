@@ -137,6 +137,7 @@
             }
             ?>
        </li>
+       
        <li class="nav-item">
          <a href="<?= SITE ?>seo-ayarlari" class="nav-link">
            <i class="nav-icon fas fa-th"></i>

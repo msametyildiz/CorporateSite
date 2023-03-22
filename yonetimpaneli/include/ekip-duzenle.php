@@ -181,7 +181,7 @@ if (!empty($_GET["ID"])) {
     <?php
     }
   } 
- else {
+   else {
   ?>
   <meta http-equiv="refresh" content="0;url=<?= SITE ?>">
 <?php

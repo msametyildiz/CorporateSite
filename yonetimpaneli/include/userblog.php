@@ -26,9 +26,10 @@
             <div class="col-md-12"><br></div>
             <?php
             if ($_POST) {
-                if (!empty($_POST["adsoyad"])&&!empty($_POST["aciklama"])) {
+                if (!empty($_POST["adsoyad"])&&!empty($_POST["aciklama"])&&!empty($_POST["unvan"])) {
                     $adsoyad = $VT->filter($_POST["adsoyad"]);
                     $aciklama = $VT->filter($_POST["aciklama"]);
+                    $unvan = $VT->filter($_POST["unvan"]);
                     $tablo = str_replace("-", "", $VT->selflink($aciklama));
                     
                     $kontrol = $VT->VeriGetir("userblog", "WHERE tablo=?", array($tablo), "ORDER BY ID ASC", 1); // TODO
@@ -42,7 +43,7 @@
                         if (!empty($_FILES["resim"]["name"])) {
                             $yukle = $VT->upload("resim", "../images/" .  "userblog" . "/");
                             if ($yukle != false) {
-                            $ekle= $VT->SorguCalistir("INSERT INTO userblog", "SET adsoyad=?,tablo=?, resim=?, aciklama=?, durum=?, tarih=?", array($adsoyad, $tablo,$yukle, $aciklama,1,date("y-m-d")));
+                            $ekle= $VT->SorguCalistir("INSERT INTO userblog", "SET adsoyad=?,tablo=?, unvan=? ,resim=?, aciklama=?, durum=?, tarih=?", array($adsoyad, $tablo,$unvan,$yukle, $aciklama,1,date("y-m-d")));
                             ?>
                               <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARILI !</div>
                             <?php
@@ -52,7 +53,7 @@
                             <?php
                             }
                           } else {
-                            $ekle= $VT->SorguCalistir("INSERT INTO userblog", "SET adsoyad=?,tablo=?, aciklama=?, durum=?, tarih=?", array($adsoyad, $tablo, $aciklama,1,date("y-m-d")));
+                            $ekle= $VT->SorguCalistir("INSERT INTO userblog", "SET adsoyad=?,tablo=?, unvan=?, aciklama=?, durum=?, tarih=?", array($adsoyad, $tablo,$unvan, $aciklama,1,date("y-m-d")));
                             
                         }
                           if ($ekle != false) {
@@ -88,6 +89,12 @@
                                                 </div>
                                             </div>
                                             <!-- user-namelastname -->
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Unvan</label>
+                                                    <input type="text" class="form-control" placeholder="Unvan ..." name="unvan">
+                                                </div>
+                                            </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Açıklama</label>

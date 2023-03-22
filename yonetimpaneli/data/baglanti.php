@@ -11,6 +11,11 @@ if ($ayarlar!=false) {
 	$sitetelefon=$ayarlar[0]["telefon"] ;
 	$sitemail=$ayarlar[0]["mail"] ;
 	$siteadres=$ayarlar[0]["adres"] ;
+	$sitefacebook=$ayarlar[0]["facebook"] ;
+	$sitetwitter=$ayarlar[0]["twitter"] ;
+	$siteinstagram=$ayarlar[0]["instagram"] ;
+	$sitetwitter=$ayarlar[0]["twitter"] ;
+	$sitetelegram=$ayarlar[0]["telegram"] ;
 	$sitefax=$ayarlar[0]["fax"] ;
 	$siteURL=$ayarlar[0]["url"];
 }

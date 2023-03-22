@@ -277,7 +277,7 @@
                                             <img src="<?=$resim?>" alt="">
                                         </div>
                                         <h3><?=$userblog[$i]["adsoyad"]?></h3>
-                                        <span>Business Owner</span>
+                                        <span><?=$userblog[$i]["unvan"]?></span>
                                     </div>
                                 </div>
                             </div>

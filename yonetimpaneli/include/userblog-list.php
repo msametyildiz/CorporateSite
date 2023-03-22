@@ -4,7 +4,7 @@ if (!empty($_GET["tablo"])) {
 
   $tablo = $VT->filter($_GET["tablo"]);
 
-  $kontrol = $VT->VeriGetir("moduller", "WHERE tablo=? AND durum=?", array($tablo, 3), "ORDER BY ID ASC", 1);
+  $kontrol = $VT->VeriGetir("moduller", "WHERE tablo=? AND durum=?", array($tablo, 20), "ORDER BY ID ASC", 1);
 
   if ($kontrol != false) {
 

@@ -20,16 +20,16 @@
                             <div class="socail_links">
                                 <ul>
                                     <li>
-                                        <a href="#"><i class="ti-facebook"></i></a>
+                                        <a href="<?=$sitefacebook?>"><i class="ti-facebook"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#" ><i class="fa fa-telegram" style="color:#0088cc;"></i></a>
+                                        <a href="<?=$sitetelegram?>" ><i class="fa fa-telegram" style="color:#0088cc;"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="<?=$sitetwitter?>"><i class="fa fa-twitter"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                        <a href="<?=$siteinstagram?>"><i class="fa fa-instagram"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -97,9 +97,9 @@
                 <div class="footer_border"></div>
                 <div class="row">
                     <div class="col-xl-12">
-                        <p class="copy_right text-center">
+                        <p class="copy_right text-right" style="font-size:10px;">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" style="text-align: right;">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>

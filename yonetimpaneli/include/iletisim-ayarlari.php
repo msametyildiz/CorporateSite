@@ -24,12 +24,16 @@
 <!----------------------------------------------------------------------------------------------------------------------------------->
 <?php 
 if($_POST){
-  if(!empty($_POST["telefon"]) && !empty($_POST["mail"]) && !empty($_POST["adres"]) && !empty($_POST["fax"])){
+  if(!empty($_POST["telefon"]) && !empty($_POST["mail"]) && !empty($_POST["adres"]) && !empty($_POST["fax"]) && !empty($_POST["facebook"]) && !empty($_POST["twitter"]) && !empty($_POST["instagram"]) && !empty($_POST["telegram"])){
         $telefon=$VT->filter($_POST["telefon"]);
         $mail=$VT->filter($_POST["mail"]);
         $adres=$VT->filter($_POST["adres"]);
         $fax=$VT->filter($_POST["fax"]);
-        $guncelle=$VT->SorguCalistir("UPDATE ayarlar","SET telefon=?, mail=?, adres=?, fax=? WHERE ID=?",array($telefon,$mail,$adres,$fax,1),1);
+        $facebook=$VT->filter($_POST["facebook"]);
+        $twitter=$VT->filter($_POST["twitter"]);
+        $instagram=$VT->filter($_POST["instagram"]);
+        $telegram=$VT->filter($_POST["telegram"]);
+        $guncelle=$VT->SorguCalistir("UPDATE ayarlar","SET telefon=?, mail=?, adres=?, fax=? , facebook=?, twitter=?, telegram=? , instagram=? WHERE ID=?",array($telefon,$mail,$adres,$fax,$facebook,$twitter,$telegram,$instagram,1),1);
         if($guncelle!=false){
               ?>
                 <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
@@ -85,6 +89,31 @@ if($_POST){
                 <div class="form-group">
                   <label>Fax</label>
                   <input type="text" class="form-control" placeholder="Fax ..." name="fax" value="<?=$sitefax?>">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                  <label>Facebook</label>
+                  <input type="text" class="form-control" placeholder="Facebook Link ..." name="facebook" value="<?=$sitefacebook?>">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                  <label>Twitter</label>
+                  <input type="text" class="form-control" placeholder="Twitter Link ..." name="twitter" value="<?=$sitetwitter?>">
+                </div>
+            </div>
+            
+            <div class="col-md-12">
+                <div class="form-group">
+                  <label>Instagram</label>
+                  <input type="text" class="form-control" placeholder="Instagram Link ..." name="instagram" value="<?=$siteinstagram?>">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                  <label>Telegram</label>
+                  <input type="text" class="form-control" placeholder="Telegram Link ..." name="telegram" value="<?=$sitetelegram?>">
                 </div>
             </div>
             <!--button  -->
