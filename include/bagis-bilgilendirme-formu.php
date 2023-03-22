@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="bradcam_text text-center">
-                    <h3>İletişim</h3>
+                    <h3>BAĞIŞ BİLDİRİM FORMU</h3>
                 </div>
             </div>
         </div>
@@ -14,9 +14,8 @@
 <!--/ bradcam_area  -->
 
 <!-- about_mission  -->
-<section id="iletisim" style="padding-bottom: 10%;">
+<section id="iletisim" style="padding-bottom: 10%; padding-top:5%;">
     <div class="container">
-        <h3 id="h3iletisim">İletişim</h3>
         <form action="#" method="post">
         <?php
             if($_POST){
