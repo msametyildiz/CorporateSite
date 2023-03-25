@@ -156,6 +156,15 @@
          </a>
        </li>
        <li class="nav-item">
+         <a href="<?= SITE ?>bagis-yap" class="nav-link">
+           <i class="nav-icon fas fa-th"></i>
+           <p>
+             Bağış Yap
+             <span class="right badge badge-danger"></span>
+           </p>
+         </a>
+       </li>
+       <li class="nav-item">
          <a href="<?= SITE ?>iletisim-ayarlari" class="nav-link">
            <i class="nav-icon fas fa-th"></i>
            <p>
@@ -166,7 +175,7 @@
        </li>
 
        <li class="nav-item">
-         <a href="<?= SITE ?>kullanici-ekle" class="nav-link">
+         <a href="<?= SITE ?>kullanici-liste" class="nav-link">
            <i class="nav-icon fas fa-th"></i>
            <p>
              Kullanıcılar

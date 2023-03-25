@@ -1,3 +1,10 @@
+<?php
+
+  if ($kontrol != false) {
+    $veri = $VT->VeriGetir($kontrol[0]["kullanici"], "WHERE ID=?", array($ID), "ORDER BY ID ASC", 1);
+    if ($veri != false) {
+?>
+
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
@@ -179,3 +186,21 @@
   </section>
   <!-- /.content -->
 </div>
+
+
+
+
+
+<?php
+    } else {
+    ?>
+      <meta http-equiv="refresh" content="0;url=<?= SITE ?>liste/<?= $kontrol[0]["kullanici"] ?>">
+    <?php
+    }
+  } else {
+    ?>
+    <meta http-equiv="refresh" content="0;url=<?= SITE ?>">
+  <?php
+
+  }
+?>

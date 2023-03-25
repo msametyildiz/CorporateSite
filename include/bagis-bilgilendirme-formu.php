@@ -47,9 +47,7 @@
                     echo '<div class="alert alert-danger">Boş bırktığını alanı doldurunuz</div>';
                 }
             }
-            else{
-                echo '<div class="alert alert-danger">İşlem başarısız...</div>';
-            }
+            
             ?>
             <div class="row">
                 <div class="col-md-12">

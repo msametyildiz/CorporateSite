@@ -5,7 +5,7 @@
            <div class="row">
                <div class="col-xl-12">
                    <div class="bradcam_text text-center">
-                       <h3>Bloglar</h3>
+                       <h3>Güncel İhtiyaçlar</h3>
                        
                        <div class="search_form">
                             <form action="#" method="post">

@@ -34,7 +34,7 @@
                                         <!--hizmetlerimin yada başka bir sayfanın altına bir şey kelemek için yani açılır menü yapmak için href kısmına # ekle -->
                                         <li ><a href="<?= SITE ?>hizmetler">HİZMETLER</a></li>
                                         <li ><a href="<?= SITE ?>projeler">PROJELER</a></li>
-                                        <li ><a href="<?= SITE ?>blog">BLOG</a></li>
+                                        <li ><a href="<?= SITE ?>blog">HABERLER</a></li>
                                         <li ><a href="<?= SITE ?>iletisim">İLETİŞİM</a></li>
                                         <li>
                                         <li style="float:right;padding: 8px 8px;background-color:red;"><a href="<?= SITE ?>bagis" onMouseOver="this.style.color='white'"

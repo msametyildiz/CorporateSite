@@ -60,6 +60,7 @@ if(!empty($_SESSION["ID"]) && !empty($_SESSION["adsoyad"]) && !empty($_SESSION["
               $_SESSION["adsoyad"]=$kontrol[0]["adsoyad"];
               $_SESSION["mail"]=$kontrol[0]["mail"];
               $_SESSION["ID"]=$kontrol[0]["ID"];
+              $_SESSION["telefonno"]=$kontrol[0]["telefonno"];
               ?>
                   <meta http-equiv="refresh" content="0,url=<?=SITE?>"/>
               <?php
@@ -67,11 +68,17 @@ if(!empty($_SESSION["ID"]) && !empty($_SESSION["adsoyad"]) && !empty($_SESSION["
             } 
             else{
               echo '<div class="alert alert-danger">Kullanıcı adı ve ya şifre hatalı.</div>';
+              ?>
+              <meta http-equiv="refresh" content="2,url=<?=SITE?>"/>
+          <?php
             }
 
           }
           else{
             echo '<div class="alert alert-danger">Boş Bırakılan Alanları Doldurunuz.</div>';
+            ?>
+            <meta http-equiv="refresh" content="0,url=<?=SITE?>"/>
+        <?php
           }
         }
     ?>
