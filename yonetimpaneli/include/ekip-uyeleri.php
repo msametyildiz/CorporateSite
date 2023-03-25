@@ -120,7 +120,7 @@
 
                   <a href="<?= SITE ?>ekip-duzenle/<?= $veriler[$i]["ID"] ?>" class="btn btn-warning btn-sm">Düzenle</a>
 
-                  <a href="<?= SITE ?>sil/<?= $kontrol[0]["tablo"] ?>/<?= $veriler[$i]["ID"] ?>" class="btn btn-danger btn-sm">Kaldır</a>
+                  <a href="<?= SITE ?>ekip-uyeleri-sil/<?= $kontrol[0]["tablo"] ?>/<?= $veriler[$i]["ID"] ?>" class="btn btn-danger btn-sm">Kaldır</a>
 
                 </td>
 

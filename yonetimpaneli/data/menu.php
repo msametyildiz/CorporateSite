@@ -124,6 +124,7 @@
            </ul>
          </li>
          
+         
         <li class="nav-item">
         <?php
             $moduller = $VT->VeriGetir("moduller", "WHERE tablo=?", array("userblog"), "ORDER BY ID ASC");
@@ -137,7 +138,14 @@
             }
             ?>
        </li>
-       
+       <li class="nav-item">
+         <a href="<?= SITE ?>proje-liste" class="nav-link">
+           <i class="nav-icon fas fa-th"></i>
+           <p>Projelerimiz
+             <span class="right badge badge-danger"></span>
+           </p>
+         </a>
+       </li>
        <li class="nav-item">
          <a href="<?= SITE ?>seo-ayarlari" class="nav-link">
            <i class="nav-icon fas fa-th"></i>

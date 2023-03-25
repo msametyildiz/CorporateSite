@@ -148,12 +148,7 @@ if (!empty($_GET["tablo"]) && !empty($_GET["ID"])) {
                       </div>
                     </div>
                     <!--Serial no  -->
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Sıra no</label>
-                        <input type="number" class="form-control" placeholder="Sıra No ..." name="sirano" style="width:100px;" value="<?= stripslashes($veri[0]["sirano"]) ?>">
-                      </div>
-                    </div>
+                    
                     <div class="col-md-12">
                       <div class="form-group">
                         <button type="submit" class="btn btn-block btn-primary">KAYDET</button>

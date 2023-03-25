@@ -36,7 +36,8 @@
                         echo '<div class="alert alert-danger">Veritabanına ekleme işlemi başarısız...</div>';
                     }
                     $metin="Ad Soyad : ".$adsoyad." Mail Adresi : ".$mail." Telefon Numarası : ".$telefon." Mesaj : ".$mesaj;
-                    $maililet=$VT->MailGonder("samet.saray.06@gmail.com",$konu,$metin);
+                    
+                    $maililet=$VT->MailGonder("$sitemail",$konu,$metin);
                     if($maililet!=false){
                         echo '<div class="alert alert-success">Mesajınız Başarıyla İletilmiştir. </div>';
                     }
@@ -48,21 +49,19 @@
                     echo '<div class="alert alert-danger">Boş bırktığını alanı doldurunuz</div>';
                 }
             }
-            else{
-                echo '<div class="alert alert-danger">İşlem başarısız...</div>';
-            }
+            
             ?>
             <div id="iletisimopak">
                 <div id="formgroup">
                     <div id="solform">
-                        <input type="text" name="adsoyad" class="form-control" placeholder="Ad Soyad" required="required">
-                        <input type="text" name="telefon" class="form-control" placeholder="Telefon Numarası" required="required" maxlength="11">
+                        <input type="text" name="adsoyad" class="form-control" placeholder="Ad Soyad" required="required" data-val-required="Ad Soyad&#x131;z zorunludur!">
+                        <input type="text" name="telefon" class="form-control" placeholder="Telefon Numarası" required="required" data-val-required="Telefon numaran&#x131;z zorunludur!" maxlength="11">
                     </div>
                     <div id="sagform">
-                        <input type="email" name="mail" class="form-control" placeholder="E-mail " required="required">
-                        <input type="text" name="konu" class="form-control" placeholder="Konu Başlığı" required="required">
+                        <input type="email" name="mail" class="form-control" placeholder="E-mail " required="required" data-val-required="Mail&#x131;z zorunludur!">
+                        <input type="text" name="konu" class="form-control" placeholder="Konu Başlığı" required="required" data-val-required="Konu Başlığı&#x131;z zorunludur!">
                     </div>
-                    <textarea name="mesaj" class="form-control" cols="30" rows="10" placeholder="Mesaj giriniz " required="required"></textarea>
+                    <textarea name="mesaj" class="form-control" cols="30" rows="10" placeholder="Mesaj giriniz " required="required" data-val-required="Mesaş&#x131;z zorunludur!"></textarea>
                     <input type="submit" class="form-control" name="GonderButton" value="Gönder">
                 </div>
                 <div id="adres">

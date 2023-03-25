@@ -27,7 +27,7 @@
                     $mesaj=$VT->filter($_POST["mesaj"]);
                     include_once(SINIF."class.phpmailer.php");
                     include_once(SINIF."class.smtp.php");
-                    $ekle=$VT->SorguCalistir("INSERT INTO iletisim (`adsoyad`, `telefon`, `mail`, `konu`, `mesaj`) VALUES ('$adsoyad','$telefon','$mail','$konu','$mesaj')");
+                    $ekle=$VT->SorguCalistir("INSERT INTO bagisbilgilendirmeformu (`adsoyad`, `telefon`, `mail`, `konu`, `mesaj`) VALUES ('$adsoyad','$telefon','$mail','$konu','$mesaj')");
                     if($ekle!=false){
                         echo '<div class="alert alert-success">Veritabanına ekleme işlemi başarılı...</div>';
                     }
@@ -35,7 +35,7 @@
                         echo '<div class="alert alert-danger">Veritabanına ekleme işlemi başarısız...</div>';
                     }
                     $metin="Ad Soyad : ".$adsoyad." Mail Adresi : ".$mail." Telefon Numarası : ".$telefon." Mesaj : ".$mesaj;
-                    $maililet=$VT->MailGonder("samet.saray.06@gmail.com",$konu,$metin);
+                    $maililet=$VT->MailGonder("$sitemail",$konu,$metin);
                     if($maililet!=false){
                         echo '<div class="alert alert-success">Mesajınız Başarıyla İletilmiştir. </div>';
                     }
