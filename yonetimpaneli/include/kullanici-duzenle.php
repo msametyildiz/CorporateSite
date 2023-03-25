@@ -1,8 +1,9 @@
 <?php
-
+if (!empty($_GET["ID"])) {
+  $ID = $VT->filter($_GET["ID"]);
+  $kontrol = $VT->VeriGetir("kullanicilar", "WHERE durum=? AND ID=?", array(1,$ID), "ORDER BY ID ASC", 1);
+  
   if ($kontrol != false) {
-    $veri = $VT->VeriGetir($kontrol[0]["kullanici"], "WHERE ID=?", array($ID), "ORDER BY ID ASC", 1);
-    if ($veri != false) {
 ?>
 
 <div class="content-wrapper">
@@ -203,4 +204,5 @@
   <?php
 
   }
+
 ?>

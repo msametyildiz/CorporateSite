@@ -36,7 +36,7 @@
               $picyukle = $VT->upload("resim", "userimages/");
               if ($picyukle != false) {
                 $ekleuser = $VT->SorguCalistir("UPDATE kullanicilar " ,"SET adsoyad=?, resim=?, kullanici=?, sifre=?, telefonno=?,
-                mail=? WHERE adsoyad=?", array($adsoyad, $resim, $kullanici, MD5("$userpassword"), $telefonno,$mail,$user),1);
+                mail=?, tarih=? WHERE adsoyad=?", array($adsoyad, $resim, $kullanici, MD5("$userpassword"), $telefonno,$mail,$user,date("y-m-d")),1);
                 if ($ekleuser != false) {
       ?>
                   <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
@@ -61,7 +61,7 @@
           } else {
             if ($userpassword == $userconfirmpassword) {
               $ekleuser = $VT->SorguCalistir("UPDATE kullanicilar " ,"SET adsoyad=?, kullanici=?, sifre=?, telefonno=?,
-                mail=? WHERE adsoyad=?", array($adsoyad, $kullanici, MD5("$userpassword"), $telefonno,$mail,$user),1);
+                mail=?, tarih=? WHERE adsoyad=?", array($adsoyad, $kullanici, MD5("$userpassword"), $telefonno,$mail,$user,date("y-m-d")),1);
               if ($ekleuser != false) {
               ?>
                 <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
