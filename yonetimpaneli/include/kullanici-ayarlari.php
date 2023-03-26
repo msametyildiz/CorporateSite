@@ -33,10 +33,10 @@
           $user=$_SESSION["adsoyad"];
           if (!empty($_FILES["resim"]["name"])) {
             if ($userpassword == $userconfirmpassword) {
-              $picyukle = $VT->upload("resim", "userimages/");
+              $picyukle = $VT->upload("resim", "../images/userpictures");
               if ($picyukle != false) {
                 $ekleuser = $VT->SorguCalistir("UPDATE kullanicilar " ,"SET adsoyad=?, resim=?, kullanici=?, sifre=?, telefonno=?,
-                mail=?, tarih=? WHERE adsoyad=?", array($adsoyad, $resim, $kullanici, MD5("$userpassword"), $telefonno,$mail,$user,date("y-m-d")),1);
+                mail=?, tarih=? WHERE adsoyad=?", array($adsoyad, $picyukle, $kullanici, MD5("$userpassword"), $telefonno,$mail,$user,date("y-m-d")),1);
                 if ($ekleuser != false) {
       ?>
                   <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>

@@ -35,9 +35,9 @@
                     else{
                         echo '<div class="alert alert-danger">Veritabanına ekleme işlemi başarısız...</div>';
                     }
-                    $metin="Ad Soyad : ".$adsoyad." Mail Adresi : ".$mail." Telefon Numarası : ".$telefon." Mesaj : ".$mesaj;
+                    $metin=$konu."Ad Soyad : ".$adsoyad." Mail Adresi : ".$mail." Telefon Numarası : ".$telefon." Mesaj : ".$mesaj;
                     
-                    $maililet=$VT->MailGonder("$sitemail",$konu,$metin);
+                    $maililet=$VT->MailGonder($sitemail,$konu,$metin);
                     if($maililet!=false){
                         echo '<div class="alert alert-success">Mesajınız Başarıyla İletilmiştir. </div>';
                     }

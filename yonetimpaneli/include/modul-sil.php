@@ -72,7 +72,7 @@
                             ?>
                         </td>
                         <td><?=$moduller[$i]["tarih"]?></td>
-                        <td><a href="<?=SITE?>sil/<?=$moduller[$i]["tablo"]?>/<?=$moduller[$i]["ID"]?>" class="btn btn-danger btn-sm">Kaldır</a></td>
+                        <td><a href="<?=SITE?>modul-sil-func/<?=$moduller[$i]["tablo"]?>/<?=$moduller[$i]["ID"]?>" class="btn btn-danger btn-sm">Kaldır</a></td>
                       </tr>
                       <?php
                     }

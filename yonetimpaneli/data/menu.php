@@ -39,12 +39,6 @@
                with font-awesome or any other icon font library -->
 
 
-         <li class="nav-item">
-           <a href="<?= SITE ?>modul-ekle" class="nav-link">
-             <i class="nav-icon fas fa-th"></i>
-             <p>Modül Ekle</p>
-           </a>
-         </li>
 
 
          <li class="nav-item ">
@@ -123,84 +117,98 @@
 
            </ul>
          </li>
-         
-         
-        <li class="nav-item">
-        <?php
+
+
+         <li class="nav-item">
+           <?php
             $moduller = $VT->VeriGetir("moduller", "WHERE tablo=?", array("userblog"), "ORDER BY ID ASC");
             if ($moduller != false) {
             ?>
-         <a href="<?= SITE ?>userblog-list/<?= $moduller[0]["tablo"] ?>"  class="nav-link">
-           <i class="nav-icon fas fa-th"></i>
-           <p><?= $moduller[0]["baslik"] ?><span class="right badge badge-danger"></span></p>
-         </a>
-         <?php
+             <a href="<?= SITE ?>userblog-list/<?= $moduller[0]["tablo"] ?>" class="nav-link">
+               <i class="nav-icon fas fa-th"></i>
+               <p>Kullanıcı Yazıları<span class="right badge badge-danger"></span></p>
+             </a>
+           <?php
             }
             ?>
-       </li>
-       <li class="nav-item">
-         <a href="<?= SITE ?>proje-liste" class="nav-link">
-           <i class="nav-icon fas fa-th"></i>
-           <p>Projelerimiz
-             <span class="right badge badge-danger"></span>
-           </p>
-         </a>
-       </li>
-       <li class="nav-item">
-         <a href="<?= SITE ?>seo-ayarlari" class="nav-link">
-           <i class="nav-icon fas fa-th"></i>
-           <p>
-             Seo Ayarları
-             <span class="right badge badge-danger"></span>
-           </p>
-         </a>
-       </li>
-       <li class="nav-item">
-         <a href="<?= SITE ?>bagis-yap" class="nav-link">
-           <i class="nav-icon fas fa-th"></i>
-           <p>
-             Bağış Yap
-             <span class="right badge badge-danger"></span>
-           </p>
-         </a>
-       </li>
-       <li class="nav-item">
-         <a href="<?= SITE ?>iletisim-ayarlari" class="nav-link">
-           <i class="nav-icon fas fa-th"></i>
-           <p>
-             Iletişim Ayarları
-             <span class="right badge badge-danger"></span>
-           </p>
-         </a>
-       </li>
+         </li>
+         <li class="nav-item">
+           <a href="<?= SITE ?>proje-liste" class="nav-link">
+             <i class="nav-icon fas fa-th"></i>
+             <p>Projelerimiz
+               <span class="right badge badge-danger"></span>
+             </p>
+           </a>
+         </li>
+         <li class="nav-item">
+           <a href="<?= SITE ?>seo-ayarlari" class="nav-link">
+             <i class="nav-icon fas fa-th"></i>
+             <p>
+               Seo Ayarları
+               <span class="right badge badge-danger"></span>
+             </p>
+           </a>
+         </li>
+         <li class="nav-item">
+           <a href="<?= SITE ?>bagis-yap" class="nav-link">
+             <i class="nav-icon fas fa-th"></i>
+             <p>
+               Bağış Yap
+               <span class="right badge badge-danger"></span>
+             </p>
+           </a>
+         </li>
+         <li class="nav-item">
+           <a href="<?= SITE ?>iletisim-ayarlari" class="nav-link">
+             <i class="nav-icon fas fa-th"></i>
+             <p>
+               Iletişim Ayarları
+               <span class="right badge badge-danger"></span>
+             </p>
+           </a>
+         </li>
 
-       <li class="nav-item">
-         <a href="<?= SITE ?>kullanici-liste" class="nav-link">
-           <i class="nav-icon fas fa-th"></i>
-           <p>
-             Kullanıcılar
-             <span class="right badge badge-danger"></span>
-           </p>
-         </a>
-       </li>
-       <li class="nav-item">
-         <a href="<?= SITE ?>ekip-uyeleri" class="nav-link">
-           <i class="nav-icon fas fa-th"></i>
-           <p>
-             Ekip Üyeleri
-             <span class="right badge badge-danger"></span>
-           </p>
-         </a>
-       </li>
-       <li class="nav-item">
-         <a href="<?= SITE ?>cikis" class="nav-link">
-           <i class="nav-icon fas fa-th"></i>
-           <p>
-             Çıkış Yap
-             <span class="right badge badge-danger"></span>
-           </p>
-         </a>
-       </li>
+         <li class="nav-item">
+           <?php
+            $moduller = $VT->VeriGetir("moduller", "WHERE tablo=?", array("kullanicilar"), "ORDER BY ID ASC");
+            if ($moduller != false) {
+            ?>
+             <a href="<?= SITE ?>kullanici-liste/<?= $moduller[0]["tablo"] ?>" class="nav-link">
+               <i class="nav-icon fas fa-th"></i>
+               <p>Kullanıcilar<span class="right badge badge-danger"></span></p>
+             </a>
+           <?php
+            }
+            ?>
+         </li>
+
+         <li class="nav-item">
+           <a href="<?= SITE ?>kullanici-liste" class="nav-link">
+             <i class="nav-icon fas fa-th"></i>
+             <p>
+               Kullanıcılar
+               <span class="right badge badge-danger"></span>
+             </p>
+           </a>
+         </li>
+         <li class="nav-item">
+           <a href="<?= SITE ?>ekip-uyeleri" class="nav-link">
+             <i class="nav-icon fas fa-th"></i>
+             <p>
+               Ekip Üyeleri
+               <span class="right badge badge-danger"></span>
+             </p>
+           </a>
+         </li>
+         <li class="nav-item">
+           <a href="<?= SITE ?>cikis" class="nav-link">
+             <i class="nav-icon fas fa-th"></i>
+             <p>
+               Çıkış Yap
+               <span class="right badge badge-danger"></span>
+             </p>
+           </a>
+         </li>
        </ul>
      </nav>
      <!-- /.sidebar-menu -->

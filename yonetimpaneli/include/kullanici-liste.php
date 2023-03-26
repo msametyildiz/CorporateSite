@@ -115,10 +115,11 @@
 
                                             <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
 
-                                                <input type="checkbox" class="custom-control-input aktifpasif<?= $veriler[$i]["ID"] ?>" id="customSwitch3<?= $veriler[$i]["ID"] ?>" <?= $aktifpasif ?> value="<?= $veriler[$i]["ID"] ?>" onclick="aktifpasif(<?= $veriler[$i]['ID'] ?>,'<?= $kontrol[0]['tablo'] ?>')" ;>
+                                                <input type="checkbox" class="custom-control-input aktifpasif<?= $veriler[$i]["ID"] ?>" 
+                                                id="customSwitch3<?= $veriler[$i]["ID"] ?>" <?= $aktifpasif ?> value="<?= $veriler[$i]["ID"] ?>"
+                                                 onclick="aktifpasif(<?= $veriler[$i]['ID'] ?>,'<?= $kontrol[0]['tablo'] ?>')" ;>
 
                                                 <label class="custom-control-label" for="customSwitch3<?= $veriler[$i]["ID"] ?>"></label>
-
                                             </div>
 
                                         </td>

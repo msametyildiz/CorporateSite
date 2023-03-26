@@ -15,7 +15,7 @@ if (!empty($_GET["tablo"]) && !empty($_GET["ID"])) {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Blog Düzenleme Sayfası</h1>
+            <h1 class="m-0 text-dark"><?= $veri[0]["adsoyad"] ?> Düzenleme Sayfası</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -29,6 +29,11 @@ if (!empty($_GET["tablo"]) && !empty($_GET["ID"])) {
     <!-- /.content-header -->
       <section class="content">
         <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-12">
+          <a href="<?= SITE ?>userblog-list\userblog" class="btn btn-info" style="float:right; margin-bottom=10px; margin-left:10px;"><i class="fa fa-bars"></i> LİSTE</a>
+        </div>
+      </div>
 <!----------------------------------------------------------------------------------------------------------------------------------->
 <?php 
 ini_set('display_errors', '1');

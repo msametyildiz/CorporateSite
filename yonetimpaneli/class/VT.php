@@ -311,7 +311,7 @@ class VT{
 	/*public function MailGonder($mail,$konu="",$mesaj)
 	{
 			$posta = new PHPMailer();
-				$posta->CharSet = "UTF-8";
+			$posta->CharSet = "UTF-8";
 			 $posta->IsSMTP();                                   // send via SMTP
 			 $posta->Host     = 	"$siteURL"; // SMTP servers
 			 $posta->SMTPAuth = true;     // turn on SMTP authentication
@@ -334,25 +334,19 @@ class VT{
 			 }
 
 	}*/
-	public function MailGonder($mail,$konu="",$mesaj)
+	
+		public function MailGonder($sitemail,$konu,$mesaj)
 	{
-			// URL of the website to retrieve data from
-		$url = "$siteURL";
+		$to = "recipient@example.com";
+		$subject = "$konu";
+		$message = "$mesaj";
+		$headers = "From: $sitemail";
 
-		// Retrieve the content of the website
-		$content = file_get_contents($url);
-
-		// Extract text from the content
-		$text = strip_tags($content);
-		$text = trim($text);
-
-		// Send an email with the text
-		$to = "$sitemail";
-		$subject = "Website Data";
-		$message = $text;
-		$headers = "From: sender@example.com";
-
-		mail($to, $subject, $message, $headers);
+		if (mail($to, $subject, $message, $headers)) {
+		    echo "Email sent successfully.";
+		} else {
+		    echo "Email failed to send.";
+		}
 
 	}
 
