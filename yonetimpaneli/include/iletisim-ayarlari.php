@@ -37,7 +37,7 @@ if($_POST){
         if($guncelle!=false){
               ?>
                 <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
-                <meta http-equiv="refresh" content="2;url=<?=SITE?>iletisim-ayarlari"/>
+                <meta http-equiv="refresh" content="0;url=<?=SITE?>iletisim-ayarlari"/>
               <?php
         }
         else{

@@ -1,3 +1,16 @@
+<?php
+
+if (!empty($_GET["tablo"])) {
+
+  $tablo = $VT->filter($_GET["tablo"]);
+
+  $kontrol = $VT->VeriGetir("moduller", "WHERE tablo=? AND durum=?", array($tablo, 3), "ORDER BY ID ASC", 1);
+
+  if ($kontrol != false) {
+
+?>
+
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -172,3 +185,31 @@
 
     <!-- /.content -->
 </div>
+
+
+
+
+<?php
+
+} else {
+
+?>
+
+  <meta http-equiv="refresh" content="0;url=<?= SITE ?>">
+
+<?php
+
+
+
+}
+} else {
+
+?>
+
+<meta http-equiv="refresh" content="0;url=<?= SITE ?>">
+
+<?php
+
+}
+
+?>

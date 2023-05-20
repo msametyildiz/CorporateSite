@@ -38,8 +38,10 @@
             if ($userpassword == $userconfirmpassword) {
               $picyukle = $VT->upload("resim", "userimages/");
               if ($picyukle != false) {
-                $ekleuser = $VT->SorguCalistir("INSERT INTO kullanicilar (`adsoyad`, `resim`, `kullanici`, `sifre`, `telefonno`,`mail`,`durum`) 
-                    VALUES ('$usernamelastname','$picyukle','$username',MD5('$userpassword'),'$telefonno','$usermail',1)");
+                $ekleuser = $VT->SorguCalistir("INSERT INTO kullanicilar" ,"SET adsoyad=?, resim=?, kullanici=?, sifre=?, telefonno=?, mail=?, durum=?, tarih=?",array($usernamelastname, $picyukle, $username, md5($userpassword), $telefonno, $usermail, 1, date("y-m-d")));
+
+
+
                 if ($ekleuser != false) {
       ?>
                   <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>

@@ -83,13 +83,23 @@ if (!empty($_GET["tablo"])) {
                     <div class="form-group">
                       <label>Kategori Seç</label>
                       <select class="form-control select2" style="width: 100%;" name="kategori">
-
+                      
                         <?php
-                        $sonuc = $VT->kategoriGetir($kontrol[0]["tablo"], "", -1);
-                        if ($sonuc != false) {
-                          echo $sonuc;
+                        if ($kontrol[0]['tablo'] == "projeler") {
+                          $tabloverisi = $VT->VeriGetir("projekonulari", "WHERE durum=?", array(1), "ORDER BY ID ASC");
+                          
+                          if ($tabloverisi != false) { //eğer bir değer var ise
+                            for ($i = 0; $i < count($tabloverisi); $i++) {
+                              echo "<option>". $tabloverisi[$i]["konu"] ."</option>";
+                            }
+                          }
                         } else {
-                          $VT->tekKategori($kontrol[0]["tablo"]);
+                          $sonuc = $VT->kategoriGetir($kontrol[0]["tablo"], "", -1);
+                          if ($sonuc != false) {
+                            echo $sonuc;
+                          } else {
+                            $VT->tekKategori($kontrol[0]["tablo"]);
+                          }
                         }
                         ?>
 
