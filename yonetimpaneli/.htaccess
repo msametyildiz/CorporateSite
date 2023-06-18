@@ -40,6 +40,12 @@ RewriteRule ^kullanici-ekle$ index.php?sayfa=kullanici-ekle [NC]
 RewriteRule ^kullanici-duzenle/(.*)$ index.php?sayfa=kullanici-duzenle&ID=$1  [NC]
 RewriteRule ^kullanici-liste$ index.php?sayfa=kullanici-liste [NC]
 
+RewriteRule ^iletisim.y/(.*)$ index.php?sayfa=iletisim.y&tablo=$1 [NC]
+RewriteRule ^iletisim.cevapla/(.*)/(.*)$ index.php?sayfa=iletisim.cevapla&tablo=$1&ID=$2  [NC]
+RewriteRule ^iletisimCevapSil/(.*)/(.*)$ index.php?sayfa=iletisimCevapSil&tablo=$1&ID=$2  [NC]
+RewriteRule ^giden_mesaj/(.*)$ index.php?sayfa=giden_mesaj&tablo=$1 [NC]
+RewriteRule ^mesaj_detay/(.*)/(.*)$ index.php?sayfa=mesaj_detay&tablo=$1&ID=$2  [NC]
+
 RewriteRule ^giris-yap$ login.php [NC]
 RewriteRule ^cikis$ index.php?sayfa=cikis [NC]
 
