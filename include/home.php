@@ -24,7 +24,7 @@
 
                         </div>
                         <div id="icerik" style="position: absolute;	top: 50%;left: 40%;transform:translate(-50%,-50%);color: white;	font-size: 20px;">
-                            <h2 style="font-family: 'Alkalami', serif;color:black;">NECAT DERNEĞİ</h2><br>
+                            <h2 style="font-family: 'Alkalami', serif;color:black;">NECAT SOSYAL YARDIMLAŞMA EĞİTİM KÜLTÜR VE TURİZM DERNEĞİ</h2><br>
                             <hr style="width:50%;text-align:left;margin-left:0;height:2px;border-width:0;color:gray;background-color:white;">
                             <h1 style="margin-top:16%;font-family: 'Kalam', cursive;color:black;">" ELİNİZİ İYİLİK İÇİN UZATIN "</h1>
                         </div>
@@ -246,7 +246,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="section_title mb-60 text-center">
-                            <p>NECAT DERNEĞİ</p>
+                            <p>NECAT SOSYAL YARDIMLAŞMA EĞİTİM KÜLTÜR VE TURİZM DERNEĞİ</p>
                             <h3>
                                 Günün Sözü
                                 
