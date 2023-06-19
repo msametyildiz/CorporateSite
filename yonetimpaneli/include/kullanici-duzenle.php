@@ -1,9 +1,14 @@
+
 <?php
-if (!empty($_GET["ID"])) {
+if (!empty($_GET["tablo"]) && !empty($_GET["ID"])) {
+
+  $tablo = $VT->filter($_GET["tablo"]);
   $ID = $VT->filter($_GET["ID"]);
-  $kontrol = $VT->VeriGetir("kullanicilar", "WHERE durum=? AND ID=?", array(1,$ID), "ORDER BY ID ASC", 1);
+  $kontrol = $VT->VeriGetir("moduller", "WHERE tablo=? AND durum=?", array($tablo, 5), "ORDER BY ID ASC", 1);
   
   if ($kontrol != false) {
+    $veri = $VT->VeriGetir($kontrol[0]["tablo"], "WHERE ID=?", array($ID), "ORDER BY ID ASC", 1);
+    if ($veri != false) {
 ?>
 
 <div class="content-wrapper">
@@ -12,12 +17,12 @@ if (!empty($_GET["ID"])) {
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Kullanıcı Ayarları</h1>
+          <h1 class="m-0 text-dark"><?= $veri[0]["adsoyad"] ?> Düzenleme Sayfası</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?= SITE ?>">Anasayfa</a></li>
-            <li class="breadcrumb-item active">Kullanıcı Ayarları</li>
+            <li class="breadcrumb-item active"><?= $veri[0]["adsoyad"] ?> Düzenleme Sayfası</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -110,7 +115,7 @@ if (!empty($_GET["ID"])) {
               <div class="col-md-10">
                 <div class="form-group">
                   <label>Ad Soyad</label>
-                  <input type="text" class="form-control" placeholder="Ad Soyad ..." name="adsoyad" value="<?= $kontrol[0]["adsoyad"] ?>">
+                  <input type="text" class="form-control" placeholder="Ad Soyad ..." name="adsoyad" value="<?= $veri[0]["adsoyad"] ?>">
                 </div>
               </div>
 
@@ -118,35 +123,35 @@ if (!empty($_GET["ID"])) {
               <div class="col-md-10">
                 <div class="form-group">
                   <label>Kullanıcı Adı</label>
-                  <input type="text" class="form-control" placeholder="Kullanıcı Adı ..." name="kullanici" value="<?= $kontrol[0]["kullanici"] ?>">
+                  <input type="text" class="form-control" placeholder="Kullanıcı Adı ..." name="kullanici" value="<?= $veri[0]["kullanici"] ?>">
                 </div>
               </div>
               <!--user-password  -->
               <div class="col-md-10">
                 <div class="form-group">
                   <label>Sifre</label>
-                  <input type="password" class="form-control" placeholder="Şifre ..." name="sifre" value="<?= $kontrol[0]["sifre"] ?>">
+                  <input type="password" class="form-control" placeholder="Şifre ..." name="sifre" value="<?= $veri[0]["sifre"] ?>">
                 </div>
               </div>
               <!--confirm-password  -->
               <div class="col-md-10">
                 <div class="form-group">
                   <label>Sifre Kontrol</label>
-                  <input type="password" class="form-control" placeholder="Şifre ..."  name="kontrolsifre" value="<?= $kontrol[0]["sifre"] ?>">
+                  <input type="password" class="form-control" placeholder="Şifre ..."  name="kontrolsifre" value="<?= $veri[0]["sifre"] ?>">
                 </div>
               </div>
               <!--user-phonenumber  -->
               <div class="col-md-10">
                 <div class="form-group">
                   <label>Telefon No</label>
-                  <input type="text" class="form-control" placeholder="Telefon No ..." name="telefonno" value="<?= $kontrol[0]["telefonno"] ?>">
+                  <input type="text" class="form-control" placeholder="Telefon No ..." name="telefonno" value="<?= $veri[0]["telefonno"] ?>">
                 </div>
               </div>
               <!--user-mail  -->
               <div class="col-md-10">
                 <div class="form-group">
                   <label>E-Mail</label>
-                  <input type="text" class="form-control" placeholder="E-Mail ..." name="mail" value="<?= $kontrol[0]["mail"] ?>">
+                  <input type="text" class="form-control" placeholder="E-Mail ..." name="mail" value="<?= $veri[0]["mail"] ?>">
                 </div>
               </div>
               <!--picture  -->
@@ -191,11 +196,10 @@ if (!empty($_GET["ID"])) {
 
 
 
-
 <?php
     } else {
     ?>
-      <meta http-equiv="refresh" content="0;url=<?= SITE ?>liste/<?= $kontrol[0]["kullanici"] ?>">
+      <meta http-equiv="refresh" content="0;url=<?= SITE ?>liste/<?= $kontrol[0]["tablo"] ?>">
     <?php
     }
   } else {
@@ -204,5 +208,9 @@ if (!empty($_GET["ID"])) {
   <?php
 
   }
-
+} else {
+  ?>
+  <meta http-equiv="refresh" content="0;url=<?= SITE ?>">
+<?php
+}
 ?>

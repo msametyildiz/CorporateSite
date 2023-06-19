@@ -201,13 +201,17 @@
         
 
          <li class="nav-item">
-           <a href="<?= SITE ?>kullanici-liste" class="nav-link">
-             <i class="nav-icon fas fa-th"></i>
-             <p>
-               Kullanıcılar
-               <span class="right badge badge-danger"></span>
-             </p>
-           </a>
+           <?php
+            $moduller = $VT->VeriGetir("moduller", "WHERE tablo=?", array("kullanicilar"), "ORDER BY ID ASC");
+            if ($moduller != false) {
+            ?>
+             <a href="<?= SITE ?>kullanici-liste/<?= $moduller[0]["tablo"] ?>" class="nav-link">
+               <i class="nav-icon fas fa-th"></i>
+               <p>Kullanıcılar<span class="right badge badge-danger"></span></p>
+             </a>
+           <?php
+            }
+            ?>
          </li>
          <li class="nav-item">
            <a href="<?= SITE ?>ekip-uyeleri" class="nav-link">

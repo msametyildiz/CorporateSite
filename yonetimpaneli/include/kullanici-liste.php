@@ -140,7 +140,7 @@ if (!empty($_GET["tablo"])) {
 
                                         
 <td>
-                                            <a href="<?= SITE ?>kullanici-duzenle/<?= $veriler[$i]["ID"] ?>" class="btn btn-warning btn-sm">Düzenle</a>
+                                            <a href="<?= SITE ?>kullanici-duzenle/<?= $kontrol[0]["tablo"] ?>/<?= $veriler[$i]["ID"] ?>" class="btn btn-warning btn-sm">Düzenle</a>
 
                                             <a href="<?= SITE ?>kullanici-sil/<?= $kontrol[0]["tablo"] ?>/<?= $veriler[$i]["ID"] ?>" class="btn btn-danger btn-sm">Kaldır</a>
                                             
