@@ -61,11 +61,11 @@ if (!empty($_GET["tablo"]) && !empty($_GET["ID"])) {
 
                                 if ($ekle != false) {
                         ?>
-                                    <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
+                                    <div class="alert alert-success">MESAJ BAŞARIYLA GÖNDERİLDİ ...</div>
                                 <?php
                                 } else {
                                 ?>
-                                    <div class="alert alert-danger">! İŞLEM SIRASINDA BİR SORUNLA KARŞILAŞILDI. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ !</div>
+                                    <div class="alert alert-danger">! GÖNDERME İŞLEMİ SIRASINDA BİR SORUNLA KARŞILAŞILDI. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ !</div>
                                 <?php
                                 }
                                 $mail_icerik = "Merhaba, sitede doldurduğunuz iletişim formuna cevap geldi. Bilgileri aşağıdadır.<br>";
