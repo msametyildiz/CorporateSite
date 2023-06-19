@@ -21,7 +21,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <a href="<?= SITE ?>kullanici-liste" class="btn btn-info" style="float:right; margin-bottom=10px; margin-left:10px;"><i class="fa fa-bars"></i> LİSTE</a>
+          <a href="<?= SITE ?>kullanici-liste/kullanicilar" class="btn btn-info" style="float:right; margin-bottom=10px; margin-left:10px;"><i class="fa fa-bars"></i> LİSTE</a>
         </div>
       </div>
       <!----------------------------------------------------------------------------------------------------------------------------------->
