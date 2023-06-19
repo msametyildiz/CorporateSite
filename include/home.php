@@ -154,27 +154,7 @@
                     <div class="col-xl-6 col-md-4">
                         <h3 style="padding-left:20%;">Projelerimiz</h3>
                     </div>
-                    <div class="col-xl-6 col-md-8">
-                        <div class="explorer_tab">
-                            <nav>
-                                <div class="nav" id="nav-tab" role="tablist">
-                                    <?php
-                                    $projeler = $VT->VeriGetir("projekonulari", "WHERE durum=?", array(1), "ORDER BY ID ASC");
-                                    if ($projeler != false) {
-                                        for ($i = 0; $i < count($projeler); $i++) {
-
-                                    ?>
-                                            <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><?= $projeler[$i]["konu"] ?></a>
-
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-                                </div>
-                            </nav>
-
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="tab-content" id="nav-tabContent" style="padding-top:4%;padding-bottom:6%">
