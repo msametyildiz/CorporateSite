@@ -2,7 +2,7 @@
 if (!empty($_GET["ID"])) {
 
   $ID = $VT->filter($_GET["ID"]);
-  $kontrol = $VT->VeriGetir("team", "WHERE durum=? ID", array(1,$ID), "ORDER BY ID ASC", 1);
+  $kontrol = $VT->VeriGetir("team", "WHERE durum=? AND ID=?", array(1,$ID), "ORDER BY ID ASC", 1);
   
   if ($kontrol != false) {
 ?>
@@ -14,12 +14,12 @@ if (!empty($_GET["ID"])) {
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0"><?= $kontrol[0]["baslik"] ?> Düzenleme Sayfası</h1>
+                <h1 class="m-0"><?= $kontrol[0]["adsoyad"] ?> Düzenleme Sayfası</h1>
               </div><!-- /.col -->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="<?= SITE ?>">Anasayfa</a></li>
-                  <li class="breadcrumb-item active"><?= $kontrol[0]["baslik"] ?></li>
+                  <li class="breadcrumb-item active"><?= $kontrol[0]["adsoyad"] ?></li>
                 </ol>
               </div><!-- /.col -->
             </div><!-- /.row -->
@@ -31,41 +31,40 @@ if (!empty($_GET["ID"])) {
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
-                <a href="<?= SITE ?>liste/<?= $kontrol[0]["adsoyad"] ?>" class="btn btn-info" style="float:right; margin-bottom=10px; margin-left:10px;"><i class="fa fa-bars"></i> LİSTE</a>
+                <a href="<?= SITE ?>ekip-uyeleri" class="btn btn-info" style="float:right; margin-bottom=10px; margin-left:10px;"><i class="fa fa-bars"></i> LİSTE</a>
               </div>
             </div>
             <!----------------------------------------------------------------------------------------------------------------------------------->
             <?php
             if ($_POST) {
-              if (!empty($_POST["kategori"]) && !empty($_POST["baslik"]) && !empty($_POST["anahtar"]) && !empty($_POST["description"]) && !empty($_POST["sirano"])) {
-                $kategori = $VT->filter($_POST["kategori"]);
-                $baslik = $VT->filter($_POST["baslik"]);
-                $anahtar = $VT->filter($_POST["anahtar"]);
-                $selflink = $VT->selflink($baslik);
-                $description = $VT->filter($_POST["description"]);
-                $sirano = $VT->filter($_POST["sirano"]);
-                $metin = $VT->filter($_POST["metin"], true); //true yazılmasının sebebi editor kullnıldığı için html komutlarını temizlemesini istemiyorum
-
-                foreach ($_FILES["resim"]["name"] as $key => $value) {
+              if (!empty($_POST["adsoyad"]) && !empty($_POST["unvan"]) && !empty($_POST["instagram"]) && 
+              !empty($_POST["twitter"]) && !empty($_POST["facebook"])) {
+                $adsoyad = $VT->filter($_POST["adsoyad"]);
+                $unvan = $VT->filter($_POST["unvan"]);
+                $instagram = $VT->filter($_POST["instagram"]);
+                $facebook = $VT->filter($_POST["facebook"]);
+                $twitter = $VT->filter($_POST["twitter"]);
+                
+                /*foreach ($_FILES["resim"]["name"] as $key => $value) {
                   if (!empty($_FILES["resim"]["name"])) {
                     $yukle = $VT->upload("resim", "../images/" . $kontrol[0]["adsoyad"] . "/");
                     if ($yukle != false) {
-                      $ekle = $VT->SorguCalistir("UPDATE " . $kontrol[0]["adsoyad"], "SET baslik=?, selflink=?, kategori=?, metin=?, resim=?, anahtar=?, description=?, durum=?,sirano=?,tarih=? WHERE ID=?", array($baslik, $selflink, $kategori, $metin, $yukle, $anahtar, $description, 1, $sirano, date("Y-m-d"), $veri[0]["ID"]));
+                      $ekle = $VT->SorguCalistir("UPDATE team", "SET adsoyad=?, unvan=?, instagram=?,facebook=?, twitter=?,resim=? , date=?, WHERE ID=?", 
+                      array($adsoyad, $unvan, $instagram, $facebook, $twitter, $yukle,date("Y-m-d"), $kontrol[0]["ID"]));
                     } else { ?>
                       <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARISIZ !</div>
                 <?php
                     }
-                  } else {
-                    $ekle = $VT->SorguCalistir("UPDATE " . $kontrol[0]["adsoyad"], "SET baslik=?, selflink=?, kategori=?, metin=?, anahtar=?, description=?, durum=?, sirano=?, tarih=? WHERE ID=?", array($baslik, $selflink, $kategori, $metin, $anahtar, $description, 1, $sirano, date("Y-m-d"), $veri[0]["ID"]));
-                  }
-                }
+                  } else {*/
+                    $ekle = $VT->SorguCalistir("UPDATE team", "SET adsoyad=?, unvan=?, instagram=?,facebook=?, twitter=?, date=?, WHERE ID=?",array($adsoyad, $unvan, $instagram, $facebook, $twitter, date("Y-m-d"), $kontrol[0]["ID"]));}
+                /*}
 
                 ?>
 
                 <?php
-
+*/
                 if ($ekle != false) {
-                  $veri = $VT->VeriGetir($kontrol[0]["adsoyad"], "WHERE ID=?", array($veri[0]["ID"]), "ORDER BY ID ASC", 1);
+                  $veri = $VT->VeriGetir($kontrol[0]["adsoyad"], "WHERE ID=?", array($kontrol[0]["ID"]), "ORDER BY ID ASC", 1);
                 ?>
                   <div class="alert alert-success">İŞLEMLER BAŞARIYLA KAYDEDİLDİ ...</div>
                 <?php
@@ -88,55 +87,39 @@ if (!empty($_GET["ID"])) {
               <div class="col-md-8">
                 <div class="card-body card card-primary">
                   <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Kategori Seç</label>
-                        <select class="form-control select2" style="width: 100%;" name="kategori">
-
-                          <?php
-                          $sonuc = $VT->kategoriGetir($kontrol[0]["adsoyad"], $veri[0]["kategori"], -1);
-                          if ($sonuc != false) {
-                            echo $sonuc;
-                          } else {
-                            $VT->tekKategori($kontrol[0]["adsoyad"]);
-                          }
-                          ?>
-
-                        </select>
-                      </div>
-                      <!-- /.col -->
-                    </div>
+                    
 
                     <!-- header in form -->
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Başlık</label>
-                        <input type="text" class="form-control" placeholder="Başlık ..." name="baslik" value="<?= stripslashes($veri[0]["baslik"]) ?>">
+                        <label>Ad Soyad</label>
+                        <input type="text" class="form-control" placeholder="Ad Soyad ..." name="adsoyad" value="<?= stripslashes($kontrol[0]["adsoyad"]) ?>">
                       </div>
                     </div>
-                    <!-- Text area-->
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Açıklama</label>
-                        <textarea id="summernote" name="metin" placeholder="  Text Area  " style="width:100%; height:450px; line-height:18px; font-size:14px; border:1px solid #dddddd; padding:10px;">
-                                <?= stripslashes($veri[0]["metin"]) ?>
-                        </textarea>
+                        <label>Unvan</label>
+                        <input type="text" class="form-control" placeholder="Unvan ..." name="unvan" value="<?= stripslashes($kontrol[0]["unvan"]) ?>">
                       </div>
                     </div>
-                    <!--keywords  -->
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Anahtar Kelimeler</label>
-                        <input type="text" class="form-control" placeholder="Anahtar Kelimeler ..." name="anahtar" value="<?= stripslashes($veri[0]["anahtar"]) ?>">
+                        <label>Facebook</label>
+                        <input type="text" class="form-control" placeholder="Facebook ..." name="facebook" value="<?= stripslashes($kontrol[0]["facebook"]) ?>">
                       </div>
                     </div>
-                    <!--description  -->
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Description</label>
-                        <input type="text" class="form-control" placeholder="Description ..." name="description" value="<?= stripslashes($veri[0]["description"]) ?>">
+                        <label>Twitter</label>
+                        <input type="text" class="form-control" placeholder="Twitter ..." name="twitter" value="<?= stripslashes($kontrol[0]["twitter"]) ?>">
                       </div>
                     </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Instagram</label>
+                        <input type="text" class="form-control" placeholder="Instagram ..." name="instagram" value="<?= stripslashes($kontrol[0]["instagram"]) ?>">
+                      </div>
+                    </div>                 
                     <!--pictures  -->
                     <div class="col-md-12">
                       <div class="form-group">
@@ -144,13 +127,7 @@ if (!empty($_GET["ID"])) {
                         <input type="file" class="form-control" placeholder="Resim Seçiniz ..." name="resim[]" multiple>
                       </div>
                     </div>
-                    <!--Serial no  -->
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Sıra no</label>
-                        <input type="number" class="form-control" placeholder="Sıra No ..." name="sirano" style="width:100px;" value="<?= stripslashes($veri[0]["sirano"]) ?>">
-                      </div>
-                    </div>
+                    
                     <div class="col-md-12">
                       <div class="form-group">
                         <button type="submit" class="btn btn-block btn-primary">KAYDET</button>
@@ -175,12 +152,7 @@ if (!empty($_GET["ID"])) {
 
 
     <?php
-    } else {
-    ?>
-      <meta http-equiv="refresh" content="0;url=<?= SITE ?>liste/<?= $kontrol[0]["adsoyad"] ?>">
-    <?php
-    }
-  } 
+    } 
    else {
   ?>
   <meta http-equiv="refresh" content="0;url=<?= SITE ?>">
