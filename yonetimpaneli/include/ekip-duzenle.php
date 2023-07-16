@@ -45,7 +45,7 @@ if (!empty($_GET["ID"])) {
                 $facebook = $VT->filter($_POST["facebook"]);
                 $twitter = $VT->filter($_POST["twitter"]);
                 
-                /*foreach ($_FILES["resim"]["name"] as $key => $value) {
+                foreach ($_FILES["resim"]["name"] as $key => $value) {
                   if (!empty($_FILES["resim"]["name"])) {
                     $yukle = $VT->upload("resim", "../images/" . $kontrol[0]["adsoyad"] . "/");
                     if ($yukle != false) {
@@ -55,14 +55,14 @@ if (!empty($_GET["ID"])) {
                       <div class="alert alert-info">! RESİM YÜKLEME İŞLEMİNİZ BAŞARISIZ !</div>
                 <?php
                     }
-                  } else {*/
+                  } else {
                     $ekle = $VT->SorguCalistir("UPDATE team", "SET adsoyad=?, unvan=?, instagram=?,facebook=?, twitter=?, date=?, WHERE ID=?",array($adsoyad, $unvan, $instagram, $facebook, $twitter, date("Y-m-d"), $kontrol[0]["ID"]));}
-                /*}
+                }
 
                 ?>
 
                 <?php
-*/
+
                 if ($ekle != false) {
                   $veri = $VT->VeriGetir($kontrol[0]["adsoyad"], "WHERE ID=?", array($kontrol[0]["ID"]), "ORDER BY ID ASC", 1);
                 ?>
@@ -152,7 +152,12 @@ if (!empty($_GET["ID"])) {
 
 
     <?php
-    } 
+    } else {
+    ?>
+      <meta http-equiv="refresh" content="0;url=<?= SITE ?>ekip-uyeleri">
+    <?php
+    }
+  } 
    else {
   ?>
   <meta http-equiv="refresh" content="0;url=<?= SITE ?>">
